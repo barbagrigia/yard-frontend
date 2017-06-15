@@ -10,28 +10,27 @@ body {
   background-repeat: repeat;
 }
 
-.wrapper {
-  padding-left: 8rem;
-  padding-right: 8rem;
-}
-
 .global-header {
   background-color: #fff;
+}
+
+.global-header-wrapper {
   display: flex;
   justify-content: space-between;
 }
 
 .global-header-logo {
-  display: flex;
+  height: 1.5rem;
   margin-bottom: 1.25rem;
   margin-top: 1.25rem;
-  height: 1.5rem;
-  object-fit: contain;
 }
 
 .global-header-menu {
   align-items: center;
   display: flex;
+  line-height: 1.0;
+  margin-bottom: 1.25rem;
+  margin-top: 1.25rem;
 }
 
 .global-header-menu-item {
@@ -157,26 +156,6 @@ body {
   padding-top: 2rem;
 }
 
-.footer-top, .footer-bottom {
-  box-sizing: border-box;
-  display: flex;
-  margin-left: -0.5rem;
-  margin-right: -0.5rem;
-}
-
-.footer-info, .footer-complexes, .footer-about {
-  box-sizing: border-box;
-  display: flex;
-  flex-flow: column;
-  flex-basis: 16.66666667%;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.footer-complexes {
-  margin-left: 16.66666667%;
-}
-
 .footer-line {
   background-color: #3E4247;
   border: none;
@@ -187,7 +166,7 @@ body {
 .footer-title {
   color: #646971;
   font-size: 0.875rem;
-  line-height: 1.4rem;
+  line-height: 1.375rem;
   margin: 0;
 }
 
@@ -200,6 +179,7 @@ body {
   display: block;
   font-size: 0.875rem;
   font-weight: 300;
+  line-height: 1.4rem;
   margin-top: 0.5rem;
   margin-bottom: 0;
   text-decoration: none;
@@ -210,14 +190,9 @@ body {
 }
 
 .footer-disclaimer {
-  box-sizing: border-box;
-  display: flex;
-  flex-basis: 66.66666667%;
   font-size: 0.6875rem;
   font-weight: 300;
   color: #a9afb6;
-  line-height: 1.2rem;
-  margin-left: 33.33333333%;
-  padding-left: 0.5rem;
-  padding-top: 6rem;
+  line-height: 1.125rem;
+  margin: 6rem 0 0;
 }
