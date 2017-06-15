@@ -57,19 +57,19 @@ body {
   margin-top: 5rem;
 }
 
-.main-intro {
+.intro {
   margin-bottom: 4rem;
   margin-top: 4rem;
   text-align: center;
 }
 
-.main-intro-title {
+.intro-title {
   color: #3e4247;
   line-height: 1.5;
   margin: 0 0;
 }
 
-.main-intro-info {
+.intro-info {
   color: #3e4247;
   line-height: 1.5;
   margin-top: 0.5rem;
@@ -77,7 +77,7 @@ body {
   padding-right: 6.25rem;
 }
 
-.main-intro-contact {
+.intro-contact {
   background-color: #000;
   border-radius: 0.125rem;
   border: none;
@@ -89,16 +89,16 @@ body {
   outline: none;
 }
 
-.main-intro-contact:hover {
+.intro-contact:hover {
   background-color: #404040;
 }
 
-.main-complexes {
+.complexes {
   display: flex;
   flex-flow: column;
 }
 
-.main-complex {
+.complex {
   background-color: #fff;
   border-bottom: solid 0.125rem #646971;
   display: flex;
@@ -106,12 +106,12 @@ body {
   text-decoration: none;
 }
 
-.main-complex:hover {
+.complex:hover {
   box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.3);
   transition: box-shadow .25s ease;
 }
 
-.main-complex-image {
+.complex-image {
   background-clip: content-box;
   background-position: 50%;
   background-size: cover;
@@ -122,7 +122,7 @@ body {
   padding-right: 0.5rem;
 }
 
-.main-complex-description {
+.complex-description {
   box-sizing: border-box;
   display: flex;
   flex-basis: 58.33333333%;
@@ -130,21 +130,21 @@ body {
   padding: 1.5rem 6.25rem 1.5rem 0.5rem;
 }
 
-.main-complex-area {
+.complex-area {
   color: #646971;
   font-family: "Monaco", "Consolas", "Lucida Console", monospace;
   line-height: 1.25;
   margin: 0;
 }
 
-.main-complex-title {
+.complex-title {
   color: #000;
   font-size: 2.5rem;
   line-height: 1.4;
   margin: 1.5rem 0 0 0;
 }
 
-.main-complex-info {
+.complex-info {
   color: #3e4247;
   line-height: 1.5;
   margin: 0.5rem 0 0 0;
