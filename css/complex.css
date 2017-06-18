@@ -223,9 +223,6 @@
 }
 
 .complex-location-wrapper {
-  display: flex;
-  flex-flow: column;
-  justify-content: flex-start;
   margin-right: 1rem;
 }
 
