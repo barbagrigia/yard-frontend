@@ -49,8 +49,7 @@ body {
 
 .development {
   background: #161616;
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
 .development-logo {
@@ -74,8 +73,6 @@ body {
   color: #3e4247;
   line-height: 1.5;
   margin-top: 0.5rem;
-  padding-left: 6.25rem;
-  padding-right: 6.25rem;
 }
 
 .intro-contact {
