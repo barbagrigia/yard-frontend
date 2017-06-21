@@ -6,7 +6,10 @@
     "import"
     ],
   "env": {
-    "browser": "true",
-    "jest": "true"
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "react/prop-types": 0
   }
 }
