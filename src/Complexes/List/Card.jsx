@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Complex = styled(Link)`
+const Card = styled(Link)`
   background-color: #fff;
   border-bottom: solid 0.125rem #646971;
   display: flex;
@@ -60,7 +60,7 @@ const Info = styled.p`
 `;
 
 export default props => (
-  <Complex to={`/complexes/${props.id}`}>
+  <Card to={`/complexes/${props.id}`}>
     <Image
       style={{
         backgroundImage: `url(${process.env.PUBLIC_URL}/img/complex-${props.id}.jpg)`,
@@ -71,5 +71,5 @@ export default props => (
       <Address>{props.address}</Address>
       <Info>{props.info}</Info>
     </Description>
-  </Complex>
+  </Card>
   );
