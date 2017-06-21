@@ -12,7 +12,7 @@ export default () => (
       <title>Complexes | Compass Development</title>
     </Helmet>
     <BodyClassName className="complexes">
-      <div>
+      <main>
         <Development />
         <Intro />
         <Grid>
@@ -41,7 +41,7 @@ export default () => (
             }
           />
         </Grid>
-      </div>
+      </main>
     </BodyClassName>
   </div>
 );
