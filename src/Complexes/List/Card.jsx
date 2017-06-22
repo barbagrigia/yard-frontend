@@ -46,14 +46,14 @@ const Location = styled.p`
   margin: 0;
 `;
 
-const Address = styled.h3`
+const Name = styled.h3`
   color: #000;
   font-size: 2.5rem;
   line-height: 1.4;
   margin: 1.5rem 0 0 0;
 `;
 
-const Info = styled.p`
+export const Info = styled.p`
   color: #3e4247;
   line-height: 1.5;
   margin: 0.5rem 0 0 0;
@@ -68,8 +68,8 @@ export default props => (
     />
     <Description>
       <Location>{props.location}</Location>
-      <Address>{props.address}</Address>
-      <Info>{props.info}</Info>
+      <Name>{props.name}</Name>
+      {props.children}
     </Description>
   </Card>
-  );
+);
