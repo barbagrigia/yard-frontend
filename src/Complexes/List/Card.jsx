@@ -53,7 +53,7 @@ const Name = styled.h3`
   margin: 1.5rem 0 0 0;
 `;
 
-export const Info = styled.p`
+const Info = styled.p`
   color: #3e4247;
   line-height: 1.5;
   margin: 0.5rem 0 0 0;
@@ -69,7 +69,7 @@ export default props => (
     <Description>
       <Location>{props.location}</Location>
       <Name>{props.name}</Name>
-      {props.children}
+      <Info>{props.children}</Info>
     </Description>
   </Card>
 );
