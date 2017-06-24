@@ -1,8 +1,11 @@
 import React from 'react';
-import { Grid, Row, Col } from 'react-flexbox-grid';
+import { Grid } from 'react-flexbox-grid';
 import styled from 'styled-components';
 
-const Header = styled.section`
+const Wrapper = styled.div`
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
   padding-bottom: 1rem;
   padding-top: 1.5rem;
 `;
@@ -36,19 +39,15 @@ const Favorites = styled.button`
 `;
 
 export default () => (
-  <Header>
-    <Grid>
-      <Row between="lg">
-        <Col lg>
-          <Title>Жилой комплекс «Полянка/44»</Title>
-          <Address>
-            Район Якиманка, улица Большая Полянка, дом 44 • 119180
-          </Address>
-        </Col>
-        <div>
-          <Favorites>В избранное</Favorites>
-        </div>
-      </Row>
-    </Grid>
-  </Header>
+  <Grid>
+    <Wrapper>
+      <div>
+        <Title>Жилой комплекс «Полянка/44»</Title>
+        <Address>
+          Район Якиманка, улица Большая Полянка, дом 44 • 119180
+        </Address>
+      </div>
+      <Favorites>В избранное</Favorites>
+    </Wrapper>
+  </Grid>
 );
