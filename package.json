@@ -1,0 +1,31 @@
+{
+  "name": "yard-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "normalize.css": "^7.0.0",
+    "react": "^15.6.1",
+    "react-body-classname": "^1.1.1",
+    "react-dom": "^15.6.1",
+    "react-flexbox-grid": "^1.1.3",
+    "react-helmet": "^5.1.3",
+    "react-router-dom": "^4.1.1",
+    "styled-components": "^2.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.1.0",
+    "react-scripts": "1.0.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext=js,jsx src",
+    "prepush": "yarn lint"
+  }
+}
