@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import Hr from './Hr';
 
 const Directions = styled.section`
   background-color: #fff;
@@ -22,7 +23,6 @@ const Wrapper = styled.div`
 `;
 
 const Direction = styled.div`
-  border-bottom: 1px solid #e0e0e1;
   padding: 1.5rem 1.5rem 1.5625rem 1.5rem;
 `;
 
@@ -57,14 +57,17 @@ export default () => (
               <Title>Красный Октябрь</Title>
               <Distance>24 минуты, 6 км</Distance>
             </Direction>
+            <Hr />
             <Direction>
               <Title>World class</Title>
               <Distance>2 минуты, 300 м</Distance>
             </Direction>
+            <Hr />
             <Direction>
               <Title>Третьяковская галерея</Title>
               <Distance>14 минут, 4 км</Distance>
             </Direction>
+            <Hr />
           </Wrapper>
         </Col>
       </Row>
