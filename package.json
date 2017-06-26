@@ -18,6 +18,7 @@
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.1.0",
+    "husky": "^0.14.1",
     "react-scripts": "1.0.7"
   },
   "scripts": {
@@ -26,6 +27,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint --ext=js,jsx src",
-    "prepush": "yarn lint"
+    "precommit": "yarn lint",
+    "prepush": "yarn lint",
+    "deploy": "yarn build && cd build && now --public --name yard-frontend"
   }
 }
