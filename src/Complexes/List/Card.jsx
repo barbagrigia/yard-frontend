@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { imagesUrl, imagesSize } from './../../api';
+import { imagesUrl } from './../../api';
 
 const Card = styled(Link)`
   background-color: #fff;
@@ -59,6 +59,8 @@ const Info = styled.p`
   line-height: 1.5;
   margin: 0.5rem 0 0 0;
 `;
+
+const imagesSize = '512';
 
 export default props => (
   <Card to={`/complexes/${props.id}`}>

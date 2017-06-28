@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Row } from 'react-flexbox-grid';
 import styled from 'styled-components';
-import { imagesUrl, imagesSize } from './../../api';
+import { imagesUrl } from './../../api';
 
 const Images = styled.div`
   display: flex;
@@ -28,6 +28,8 @@ const Button = styled.button`
   padding: 0.5rem 1rem;
   position: absolute;
 `;
+
+const imagesSize = '512';
 
 function declOfNum(number, titles) {
   const cases = [2, 0, 1, 1, 1, 2];
