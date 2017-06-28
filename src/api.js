@@ -1,4 +1,4 @@
-const apiUrl = 'https://api.jqestate.ru/v1/';
+const apiUrl = 'https://api.jqestate.ru/v1';
 export const imagesUrl = 'https://images.jqestate.ru';
 
 

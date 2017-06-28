@@ -21,25 +21,18 @@ function formatLocation(complex) {
 class Complexes extends Component {
   constructor(props) {
     super(props);
-    this.state = { complexes: [] };
-    this.load = this.load.bind(this);
+    this.state = {};
   }
 
   componentDidMount() {
-    this.load(this.props);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.load(nextProps);
-  }
-
-  load(props) {
-    get(`${props.match.url}`).then((json) => {
-      this.setState({ complexes: json.items });
-    });
+    get('/complexes/?filter[state]=public').then(({ items: complexes = [] }) =>
+      this.setState({ complexes }),
+    );
   }
 
   render() {
+    const { complexes = [] } = this.state;
+
     return (
       <div>
         <Helmet>
@@ -50,17 +43,15 @@ class Complexes extends Component {
             <Development />
             <Intro />
             <Grid>
-              {this.state.complexes
-                .filter(complex => complex.state === 'public')
-                .map(complex => (
-                  <Card
-                    key={complex.id}
-                    id={complex.id}
-                    location={formatLocation(complex)}
-                    name={complex.name}
-                    img={complex.images[0].id}
-                  />
-                ))}
+              {complexes.map(complex => (
+                <Card
+                  key={complex.id}
+                  id={complex.id}
+                  location={formatLocation(complex)}
+                  name={complex.name}
+                  img={complex.images[0].id}
+                />
+              ))}
             </Grid>
           </main>
         </BodyClassName>
