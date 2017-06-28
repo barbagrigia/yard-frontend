@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { declOfNum } from './../../utils';
+import { declOfNum } from './../utils';
 
 const Button = styled.button`
   background-color: #00779a;
