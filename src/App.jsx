@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { Switch } from 'react-router';
 import './App.css';
 import Header from './Header';
 import Footer from './Footer';
@@ -10,8 +11,11 @@ const App = () => (
   <Router>
     <div className="App">
       <Header />
-      <Route exact path="/" component={Complexes} />
-      <Route path="/complexes" component={Complex} />
+      <Switch>
+        <Route exact path="/complexes/" component={Complexes} />
+        <Route exact path="/complexes/:id" component={Complex} />
+        <Redirect from="/" to="/complexes/" />
+      </Switch>
       <Footer />
     </div>
   </Router>

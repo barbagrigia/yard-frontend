@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Row } from 'react-flexbox-grid';
 import styled from 'styled-components';
+import { imagesUrl, imagesSize } from './../../api';
 
 const Images = styled.div`
   display: flex;
@@ -28,33 +29,31 @@ const Button = styled.button`
   position: absolute;
 `;
 
-export default () => (
+function declOfNum(number, titles) {
+  const cases = [2, 0, 1, 1, 1, 2];
+  return `${number} ${titles[number % 100 > 4 && number % 100 < 20 ? 2 : cases[number % 10 < 5 ? number % 10 : 5]]}`;
+}
+
+export default props => (
   <div>
     <Images>
-      <Image
-        src={`${process.env.PUBLIC_URL}/img/complex_1.png`}
-        alt="1st image"
-      />
-      <Image
-        src={`${process.env.PUBLIC_URL}/img/complex_2.png`}
-        alt="2nd image"
-      />
-      <Image
-        src={`${process.env.PUBLIC_URL}/img/complex_3.png`}
-        alt="3rd image"
-      />
-      <Image
-        src={`${process.env.PUBLIC_URL}/img/complex_4.png`}
-        alt="4th image"
-      />
-      <Image
-        src={`${process.env.PUBLIC_URL}/img/complex_5.png`}
-        alt="5th image"
-      />
+      {props.images.map(image => (
+        <Image
+          key={image.id}
+          src={`${imagesUrl}/${image.id}-jqestate-${imagesSize}`}
+          alt={`Image ${image.id}`}
+        />
+      ))}
     </Images>
     <Grid>
       <Row>
-        <Button>41 фотография</Button>
+        <Button>
+          {declOfNum(props.images.length, [
+            'фотография',
+            'фотографии',
+            'фотографий',
+          ])}
+        </Button>
       </Row>
     </Grid>
   </div>

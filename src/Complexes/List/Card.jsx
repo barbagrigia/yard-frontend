@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { imagesUrl, imagesSize } from './../../api';
 
 const Card = styled(Link)`
   background-color: #fff;
@@ -21,7 +22,6 @@ const Card = styled(Link)`
 
 const Image = styled.div`
   background-clip: content-box;
-  background-image: url(img/complex-2.jpg);
   background-position: 50%;
   background-size: cover;
   box-sizing: border-box;
@@ -44,6 +44,7 @@ const Location = styled.p`
   font-family: "Monaco", "Consolas", "Lucida Console", monospace;
   line-height: 1.25;
   margin: 0;
+  text-transform: uppercase;
 `;
 
 const Name = styled.h3`
@@ -63,7 +64,7 @@ export default props => (
   <Card to={`/complexes/${props.id}`}>
     <Image
       style={{
-        backgroundImage: `url(${process.env.PUBLIC_URL}/img/complex-${props.id}.jpg)`,
+        backgroundImage: `url(${imagesUrl}/${props.img}-jqestate-${imagesSize})`,
       }}
     />
     <Description>

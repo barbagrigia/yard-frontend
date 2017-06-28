@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   padding-top: 1.5rem;
 `;
 
-const Title = styled.h1`
+const Name = styled.h1`
   fcolor: #3e4247;
   font-family: "Philosopher";
   font-size: 2rem;
@@ -38,14 +38,12 @@ const Favorites = styled.button`
   padding: 0.5rem 1rem;
 `;
 
-export default () => (
+export default props => (
   <Grid>
     <Wrapper>
       <div>
-        <Title>Жилой комплекс «Полянка/44»</Title>
-        <Address>
-          Район Якиманка, улица Большая Полянка, дом 44 • 119180
-        </Address>
+        <Name>{props.name}</Name>
+        <Address>{props.address}</Address>
       </div>
       <Favorites>В избранное</Favorites>
     </Wrapper>
