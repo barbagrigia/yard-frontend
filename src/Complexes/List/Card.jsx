@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { imagesUrl } from './../../api';
+import { getImageUrl } from './../../utils';
 
 const Card = styled(Link)`
   background-color: #fff;
@@ -60,13 +60,11 @@ const Info = styled.p`
   margin: 0.5rem 0 0 0;
 `;
 
-const imagesSize = '512';
-
 export default props => (
   <Card to={`/complexes/${props.id}`}>
     <Image
       style={{
-        backgroundImage: `url(${imagesUrl}/${props.img}-jqestate-${imagesSize})`,
+        backgroundImage: `url(${getImageUrl(props.img)})`,
       }}
     />
     <Description>

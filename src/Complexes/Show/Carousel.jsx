@@ -1,8 +1,8 @@
 import React from 'react';
 import { Grid, Row } from 'react-flexbox-grid';
 import styled from 'styled-components';
-import { imagesUrl } from './../../api';
-import Pluralizer from './Pluralizer';
+import { getImageUrl } from './../../utils';
+import Pluralizer from './../../components/Pluralizer';
 
 const Images = styled.div`
   display: flex;
@@ -15,15 +15,13 @@ const Image = styled.img`
   height: 400px;
 `;
 
-const imagesSize = '512';
-
 export default props => (
   <div>
     <Images>
       {props.images.map(image => (
         <Image
           key={image.id}
-          src={`${imagesUrl}/${image.id}-jqestate-${imagesSize}`}
+          src={`${getImageUrl(image.id)}`}
           alt={`Image ${image.id}`}
         />
       ))}
