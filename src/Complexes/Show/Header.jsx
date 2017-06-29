@@ -18,7 +18,7 @@ const Name = styled.h1`
   margin: 0;
 `;
 
-const Address = styled.small`
+const Location = styled.small`
   fcolor: #a9afb6;
   display: block;
   font-size: 0.875rem;
@@ -38,12 +38,18 @@ const Favorites = styled.button`
   padding: 0.5rem 1rem;
 `;
 
+function formatLocation(location) {
+  return `${location.subLocalityName ? `${location.subLocalityName}, ` : ''}
+          ${location.street}, ${location.house}
+          ${location.postalCode ? ` • ${location.postalCode}` : ''}`;
+}
+
 export default props => (
   <Grid>
     <Wrapper>
       <div>
         <Name>{props.name}</Name>
-        <Address>{props.address}</Address>
+        <Location>{formatLocation(props.location)}</Location>
       </div>
       <Favorites>В избранное</Favorites>
     </Wrapper>

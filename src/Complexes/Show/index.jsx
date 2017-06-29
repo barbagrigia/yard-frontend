@@ -9,12 +9,6 @@ import Offers from './Offers';
 import Location from './Location';
 import Directions from './Directions';
 
-function formatAddress(location) {
-  return `${location.subLocalityName ? `${location.subLocalityName}, ` : ''}
-          ${location.street}, ${location.house}
-          ${location.postalCode ? ` • ${location.postalCode}` : ''}`;
-}
-
 class Complex extends Component {
   constructor(props) {
     super(props);
@@ -37,7 +31,7 @@ class Complex extends Component {
         </Helmet>
         <BodyClassName className="complex">
           <main>
-            <Header name={name} address={formatAddress(location)} />
+            <Header name={name} location={location} />
             <Carousel images={images} />
             <Summary statistics={statistics} />
             <Offers />

@@ -7,11 +7,6 @@ import Development from './Development';
 import Intro from './Intro';
 import Card from './Card';
 
-function formatLocation(location) {
-  return `${location.subLocalityName ? `${location.subLocalityName}, ` : ''}
-          ${location.street}, ${location.house}`;
-}
-
 class Complexes extends Component {
   constructor(props) {
     super(props);
@@ -41,7 +36,7 @@ class Complexes extends Component {
                 <Card
                   key={complex.id}
                   id={complex.id}
-                  location={formatLocation(complex.location)}
+                  location={complex.location}
                   name={complex.name}
                   img={complex.images[0].id}
                 />

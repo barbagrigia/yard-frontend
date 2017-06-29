@@ -60,6 +60,11 @@ const Info = styled.p`
   margin: 0.5rem 0 0 0;
 `;
 
+function formatLocation(location) {
+  return `${location.subLocalityName ? `${location.subLocalityName}, ` : ''}
+          ${location.street}, ${location.house}`;
+}
+
 export default props => (
   <Card to={`/complexes/${props.id}`}>
     <Image
@@ -68,7 +73,7 @@ export default props => (
       }}
     />
     <Description>
-      <Location>{props.location}</Location>
+      <Location>{formatLocation(props.location)}</Location>
       <Name>{props.name}</Name>
       <Info>{props.children}</Info>
     </Description>
