@@ -34,14 +34,14 @@ const Value = styled.dd`
   width: 50%;
 `;
 
-export default () => (
+export default props => (
   <Features>
     <Title>Характеристики</Title>
     <Row>
       <Col lg={4}>
         <Feature>
           <Label>Количество квартир:</Label>
-          <Value>1 503</Value>
+          <Value>{props.statistics.propertiesCount}</Value>
         </Feature>
         <Feature>
           <Label>Статус:</Label>
@@ -55,29 +55,29 @@ export default () => (
       <Col lg={4}>
         <Feature>
           <Label>Количество квартир:</Label>
-          <Value>1 503</Value>
+          <Value>{props.statistics.propertiesCount}</Value>
         </Feature>
         <Feature>
           <Label>Количество квартир:</Label>
-          <Value>1 503</Value>
+          <Value>{props.statistics.propertiesCount}</Value>
         </Feature>
         <Feature>
           <Label>Количество квартир:</Label>
-          <Value>1 503</Value>
+          <Value>{props.statistics.propertiesCount}</Value>
         </Feature>
       </Col>
       <Col lg={4}>
         <Feature>
           <Label>Количество квартир:</Label>
-          <Value>1 503</Value>
+          <Value>{props.statistics.propertiesCount}</Value>
         </Feature>
         <Feature>
           <Label>Количество квартир:</Label>
-          <Value>1 503</Value>
+          <Value>{props.statistics.propertiesCount}</Value>
         </Feature>
         <Feature>
           <Label>Количество квартир:</Label>
-          <Value>1 503</Value>
+          <Value>{props.statistics.propertiesCount}</Value>
         </Feature>
       </Col>
     </Row>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { getImageUrl } from './../../utils';
 
 const Card = styled(Link)`
   background-color: #fff;
@@ -21,7 +22,6 @@ const Card = styled(Link)`
 
 const Image = styled.div`
   background-clip: content-box;
-  background-image: url(img/complex-2.jpg);
   background-position: 50%;
   background-size: cover;
   box-sizing: border-box;
@@ -44,6 +44,7 @@ const Location = styled.p`
   font-family: "Monaco", "Consolas", "Lucida Console", monospace;
   line-height: 1.25;
   margin: 0;
+  text-transform: uppercase;
 `;
 
 const Name = styled.h3`
@@ -59,15 +60,20 @@ const Info = styled.p`
   margin: 0.5rem 0 0 0;
 `;
 
+function formatLocation(location) {
+  return `${location.subLocalityName ? `${location.subLocalityName}, ` : ''}
+          ${location.street}, ${location.house}`;
+}
+
 export default props => (
   <Card to={`/complexes/${props.id}`}>
     <Image
       style={{
-        backgroundImage: `url(${process.env.PUBLIC_URL}/img/complex-${props.id}.jpg)`,
+        backgroundImage: `url(${getImageUrl(props.img)})`,
       }}
     />
     <Description>
-      <Location>{props.location}</Location>
+      <Location>{formatLocation(props.location)}</Location>
       <Name>{props.name}</Name>
       <Info>{props.children}</Info>
     </Description>

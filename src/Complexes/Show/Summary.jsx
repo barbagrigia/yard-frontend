@@ -6,11 +6,11 @@ import Features from './Features';
 import Description from './Description';
 import Infrastructure from './Infrastructure';
 
-export default () => (
+export default props => (
   <Grid>
     <Header />
     <Hr />
-    <Features />
+    <Features statistics={props.statistics} />
     <Description />
     <Hr />
     <Infrastructure />

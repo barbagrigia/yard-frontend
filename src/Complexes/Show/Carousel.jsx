@@ -1,6 +1,8 @@
 import React from 'react';
 import { Grid, Row } from 'react-flexbox-grid';
 import styled from 'styled-components';
+import { getImageUrl } from './../../utils';
+import Pluralizer from './../../components/Pluralizer';
 
 const Images = styled.div`
   display: flex;
@@ -28,33 +30,27 @@ const Button = styled.button`
   position: absolute;
 `;
 
-export default () => (
+export default props => (
   <div>
     <Images>
-      <Image
-        src={`${process.env.PUBLIC_URL}/img/complex_1.png`}
-        alt="1st image"
-      />
-      <Image
-        src={`${process.env.PUBLIC_URL}/img/complex_2.png`}
-        alt="2nd image"
-      />
-      <Image
-        src={`${process.env.PUBLIC_URL}/img/complex_3.png`}
-        alt="3rd image"
-      />
-      <Image
-        src={`${process.env.PUBLIC_URL}/img/complex_4.png`}
-        alt="4th image"
-      />
-      <Image
-        src={`${process.env.PUBLIC_URL}/img/complex_5.png`}
-        alt="5th image"
-      />
+      {props.images.map(image => (
+        <Image
+          key={image.id}
+          src={`${getImageUrl(image.id)}`}
+          alt={`Image ${image.id}`}
+        />
+      ))}
     </Images>
     <Grid>
       <Row>
-        <Button>41 фотография</Button>
+        <Button>
+          <Pluralizer
+            num={props.images.length}
+            one="фотография"
+            few="фотографии"
+            other="фотографий"
+          />
+        </Button>
       </Row>
     </Grid>
   </div>
