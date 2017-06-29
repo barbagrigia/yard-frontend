@@ -46,9 +46,9 @@ export default props => (
         <Button>
           <Pluralizer
             num={props.images.length}
-            firstDecl={'фотография'}
-            secondDecl={'фотографии'}
-            thirdDecl={'фотографий'}
+            one="фотография"
+            few="фотографии"
+            other="фотографий"
           />
         </Button>
       </Row>
