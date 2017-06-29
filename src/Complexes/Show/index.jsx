@@ -9,14 +9,14 @@ import Offers from './Offers';
 import Location from './Location';
 import Directions from './Directions';
 
-function formatAddress(complex) {
+function formatAddress(location) {
   let address = '';
 
-  if (complex.location.subLocalityName) {
-    address = `${complex.location.subLocalityName}, `;
+  if (location.subLocalityName) {
+    address = `${location.subLocalityName}, `;
   }
-  address += `${complex.location.street},
-    ${complex.location.house} • ${complex.location.postalCode}`;
+  address += `${location.street},
+    ${location.house} • ${location.postalCode}`;
 
   return address;
 }
@@ -24,30 +24,27 @@ function formatAddress(complex) {
 class Complex extends Component {
   constructor(props) {
     super(props);
-    this.state = { complex: null };
+    this.state = {};
   }
 
   componentDidMount() {
-    get(`${this.props.match.url}`).then(json =>
-      this.setState({ complex: json }),
-    );
+    get(`/complexes/${this.props.match.params.id}`).then(complex =>
+      this.setState(complex));
   }
 
   render() {
+    const { name, location = {}, statistics = {}, images = [] } = this.state;
+
     return (
-      this.state.complex &&
       <div>
         <Helmet>
-          <title>{this.state.complex.name} | Compass Development</title>
+          <title>{`${name}`} | Compass Development</title>
         </Helmet>
         <BodyClassName className="complex">
           <main>
-            <Header
-              name={this.state.complex.name}
-              address={formatAddress(this.state.complex)}
-            />
-            <Carousel images={this.state.complex.images} />
-            <Summary statistics={this.state.complex.statistics} />
+            <Header name={name} address={formatAddress(location)} />
+            <Carousel images={images} />
+            <Summary statistics={statistics} />
             <Offers />
             <Location />
             <Directions />
