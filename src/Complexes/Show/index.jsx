@@ -10,15 +10,9 @@ import Location from './Location';
 import Directions from './Directions';
 
 function formatAddress(location) {
-  let address = '';
-
-  if (location.subLocalityName) {
-    address = `${location.subLocalityName}, `;
-  }
-  address += `${location.street},
-    ${location.house} • ${location.postalCode}`;
-
-  return address;
+  return `${location.subLocalityName ? `${location.subLocalityName}, ` : ''}
+          ${location.street}, ${location.house}
+          ${location.postalCode ? ` • ${location.postalCode}` : ''}`;
 }
 
 class Complex extends Component {
@@ -29,7 +23,8 @@ class Complex extends Component {
 
   componentDidMount() {
     get(`/complexes/${this.props.match.params.id}`).then(complex =>
-      this.setState(complex));
+      this.setState(complex),
+    );
   }
 
   render() {

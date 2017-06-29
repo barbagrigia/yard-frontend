@@ -7,15 +7,9 @@ import Development from './Development';
 import Intro from './Intro';
 import Card from './Card';
 
-function formatLocation(complex) {
-  let location = '';
-
-  if (complex.location.subLocalityName) {
-    location = `${complex.location.subLocalityName}, `;
-  }
-  location += `${complex.location.street}, ${complex.location.house}`;
-
-  return location;
+function formatLocation(location) {
+  return `${location.subLocalityName ? `${location.subLocalityName}, ` : ''}
+          ${location.street}, ${location.house}`;
 }
 
 class Complexes extends Component {
@@ -47,7 +41,7 @@ class Complexes extends Component {
                 <Card
                   key={complex.id}
                   id={complex.id}
-                  location={formatLocation(complex)}
+                  location={formatLocation(complex.location)}
                   name={complex.name}
                   img={complex.images[0].id}
                 />
