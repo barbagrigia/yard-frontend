@@ -1,8 +1,17 @@
+/* @flow */
+
 import React from 'react';
 import { declOfNum } from './../utils';
 
-export default props => (
+type Props = {
+  num: number,
+  one: string,
+  few: string,
+  other: string,
+};
+
+export default ({ num, one, few, other }: Props) => (
   <span>
-    {declOfNum(props.num, [props.one, props.few, props.other])}
+    {declOfNum(num, [one, few, other])}
   </span>
 );
