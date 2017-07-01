@@ -1,3 +1,5 @@
+/* @flow */
+
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import BodyClassName from 'react-body-classname';
@@ -8,31 +10,28 @@ import Summary from './Summary';
 import Offers from './Offers';
 import Location from './Location';
 import Directions from './Directions';
+import type { ComplexType } from './../types';
 
 class Complex extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  state = {};
+  state: ComplexType;
 
   componentDidMount() {
     this.load(this.props.match.params.id);
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: Object) {
     if (nextProps.match.params.id !== this.props.match.params.id) {
       this.load(nextProps.match.params.id);
     }
   }
 
-  load(id) {
-    get(`/complexes/${id}`).then(complex =>
-      this.setState(complex),
-    );
+  load(id: number) {
+    get(`/complexes/${id}`).then(complex => this.setState(complex));
   }
 
   render() {
-    const { name, location = {}, statistics = {}, images = [] } = this.state;
+    const { name, location = {}, images = [], statistics = {} } = this.state;
 
     return (
       <div>
