@@ -46,19 +46,17 @@ type Props = {
   location: LocationType,
 };
 
-function formatLocation(location): string {
-  return `${location.subLocalityName ? `${location.subLocalityName}, ` : ''}
-          ${location.street ? `${location.street}, ` : ''}
-          ${location.house ? `${location.house}` : ''}
-          ${location.postalCode ? ` • ${location.postalCode}` : ''}`;
-}
-
 export default ({ name, location }: Props) => (
   <Grid>
     <Wrapper>
       <div>
         <Name>{name}</Name>
-        <Location>{formatLocation(location)}</Location>
+        <Location>
+          {location.subLocalityName && `${location.subLocalityName}, `}
+          {location.street && `${location.street}, `}
+          {location.house && `${location.house}`}
+          {location.postalCode && ` • ${location.postalCode}`}
+        </Location>
       </div>
       <Favorites>В избранное</Favorites>
     </Wrapper>

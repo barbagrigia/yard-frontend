@@ -72,12 +72,6 @@ type Props = {
   children: Children,
 };
 
-function formatLocation(location: LocationType): string {
-  return `${location.subLocalityName ? `${location.subLocalityName}, ` : ''}
-          ${location.street ? `${location.street}, ` : ''}
-          ${location.house ? `${location.house}` : ''}`;
-}
-
 export default ({ id, img, location, name, children }: Props) => (
   <Card to={`/complexes/${id}`}>
     <Image
@@ -86,7 +80,11 @@ export default ({ id, img, location, name, children }: Props) => (
       }}
     />
     <Description>
-      <Location>{formatLocation(location)}</Location>
+      <Location>
+        {location.subLocalityName && `${location.subLocalityName}, `}
+        {location.street && `${location.street}, `}
+        {location.house && `${location.house}`}
+      </Location>
       <Name>{name}</Name>
       <Info>{children}</Info>
     </Description>
