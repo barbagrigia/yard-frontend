@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import type { Children } from 'react';
 import { getImageUrl } from './../../utils';
-import type { LocationType } from './../types';
+import type { ComplexType } from './../types';
 
 const Card = styled(Link)`
   background-color: #fff;
@@ -67,12 +67,14 @@ const Info = styled.p`
 type Props = {
   id: number,
   img: string,
-  location: LocationType,
+  location: $PropertyType<ComplexType, 'location'>,
   name: string,
   children: Children,
 };
 
-function formatLocation(location: LocationType): string {
+function formatLocation(
+  location: $PropertyType<ComplexType, 'location'>,
+): string {
   return `${location.subLocalityName ? `${location.subLocalityName}, ` : ''}
           ${location.street}, ${location.house}`;
 }
