@@ -1,7 +1,11 @@
+/* @flow */
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import type { Children } from 'react';
 import { getImageUrl } from './../../utils';
+import type { LocationType } from './../types';
 
 const Card = styled(Link)`
   background-color: #fff;
@@ -60,22 +64,30 @@ const Info = styled.p`
   margin: 0.5rem 0 0 0;
 `;
 
-function formatLocation(location) {
+type Props = {
+  id: number,
+  img: string,
+  location: LocationType,
+  name: string,
+  children: Children,
+};
+
+function formatLocation(location: LocationType): string {
   return `${location.subLocalityName ? `${location.subLocalityName}, ` : ''}
           ${location.street}, ${location.house}`;
 }
 
-export default props => (
-  <Card to={`/complexes/${props.id}`}>
+export default ({ id, img, location, name, children }: Props) => (
+  <Card to={`/complexes/${id}`}>
     <Image
       style={{
-        backgroundImage: `url(${getImageUrl(props.img)})`,
+        backgroundImage: `url(${getImageUrl(img)})`,
       }}
     />
     <Description>
-      <Location>{formatLocation(props.location)}</Location>
-      <Name>{props.name}</Name>
-      <Info>{props.children}</Info>
+      <Location>{formatLocation(location)}</Location>
+      <Name>{name}</Name>
+      <Info>{children}</Info>
     </Description>
   </Card>
 );

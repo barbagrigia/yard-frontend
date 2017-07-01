@@ -1,3 +1,5 @@
+/* @flow */
+
 import React from 'react';
 import { Grid, Row } from 'react-flexbox-grid';
 import styled from 'styled-components';

@@ -23,14 +23,14 @@ const request = (method, resource, headers, body = null) =>
     body,
   }).then(checkStatus);
 
-export function get(resource: string, headers: Object): Promise<any> {
+export function get(resource: string, headers: ?Object): Promise<any> {
   return request('GET', resource, headers).then(r => r.json());
 }
 
 export function post(
   resource: string,
   body: JSON,
-  headers: Object,
+  headers: ?Object,
 ): Promise<any> {
   return request('POST', resource, headers, JSON.stringify(body));
 }
@@ -38,7 +38,7 @@ export function post(
 export function put(
   resource: string,
   body: JSON,
-  headers: Object,
+  headers: ?Object,
 ): Promise<any> {
   return request('PUT', resource, headers, JSON.stringify(body));
 }
