@@ -1,7 +1,10 @@
+/* @flow */
+
 import React from 'react';
 import { Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
 import Title from './Title';
+import type { StatisticsType } from './../types';
 
 const Features = styled.section`
   padding-top: 2rem;
@@ -34,14 +37,18 @@ const Value = styled.dd`
   width: 50%;
 `;
 
-export default props => (
+type Props = {
+  statistics: StatisticsType,
+};
+
+export default ({ statistics }: Props) => (
   <Features>
     <Title>Характеристики</Title>
     <Row>
       <Col lg={4}>
         <Feature>
           <Label>Количество квартир:</Label>
-          <Value>{props.statistics.propertiesCount}</Value>
+          <Value>{statistics.propertiesCount}</Value>
         </Feature>
         <Feature>
           <Label>Статус:</Label>
@@ -55,29 +62,29 @@ export default props => (
       <Col lg={4}>
         <Feature>
           <Label>Количество квартир:</Label>
-          <Value>{props.statistics.propertiesCount}</Value>
+          <Value>{statistics.propertiesCount}</Value>
         </Feature>
         <Feature>
           <Label>Количество квартир:</Label>
-          <Value>{props.statistics.propertiesCount}</Value>
+          <Value>{statistics.propertiesCount}</Value>
         </Feature>
         <Feature>
           <Label>Количество квартир:</Label>
-          <Value>{props.statistics.propertiesCount}</Value>
+          <Value>{statistics.propertiesCount}</Value>
         </Feature>
       </Col>
       <Col lg={4}>
         <Feature>
           <Label>Количество квартир:</Label>
-          <Value>{props.statistics.propertiesCount}</Value>
+          <Value>{statistics.propertiesCount}</Value>
         </Feature>
         <Feature>
           <Label>Количество квартир:</Label>
-          <Value>{props.statistics.propertiesCount}</Value>
+          <Value>{statistics.propertiesCount}</Value>
         </Feature>
         <Feature>
           <Label>Количество квартир:</Label>
-          <Value>{props.statistics.propertiesCount}</Value>
+          <Value>{statistics.propertiesCount}</Value>
         </Feature>
       </Col>
     </Row>

@@ -1,8 +1,11 @@
+/* @flow */
+
 import React from 'react';
 import { Grid, Row } from 'react-flexbox-grid';
 import styled from 'styled-components';
 import { getImageUrl } from './../../utils';
 import Pluralizer from './../../components/Pluralizer';
+import type { ImagesType } from './../types';
 
 const Images = styled.div`
   display: flex;
@@ -30,10 +33,14 @@ const Button = styled.button`
   position: absolute;
 `;
 
-export default props => (
+type Props = {
+  images: ImagesType,
+};
+
+export default ({ images }: Props) => (
   <div>
     <Images>
-      {props.images.map(image => (
+      {images.map(image => (
         <Image
           key={image.id}
           src={`${getImageUrl(image.id)}`}
@@ -45,7 +52,7 @@ export default props => (
       <Row>
         <Button>
           <Pluralizer
-            num={props.images.length}
+            num={images.length}
             one="фотография"
             few="фотографии"
             other="фотографий"

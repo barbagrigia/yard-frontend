@@ -1,6 +1,9 @@
+/* @flow */
+
 import React from 'react';
 import { Grid } from 'react-flexbox-grid';
 import styled from 'styled-components';
+import type { LocationType } from './../types';
 
 const Wrapper = styled.div`
   align-items: flex-start;
@@ -38,18 +41,22 @@ const Favorites = styled.button`
   padding: 0.5rem 1rem;
 `;
 
-function formatLocation(location) {
-  return `${location.subLocalityName ? `${location.subLocalityName}, ` : ''}
-          ${location.street}, ${location.house}
-          ${location.postalCode ? ` • ${location.postalCode}` : ''}`;
-}
+type Props = {
+  name: string,
+  location: LocationType,
+};
 
-export default props => (
+export default ({ name, location }: Props) => (
   <Grid>
     <Wrapper>
       <div>
-        <Name>{props.name}</Name>
-        <Location>{formatLocation(props.location)}</Location>
+        <Name>{name}</Name>
+        <Location>
+          {location.subLocalityName && `${location.subLocalityName}, `}
+          {location.street && `${location.street}, `}
+          {location.house && `${location.house}`}
+          {location.postalCode && ` • ${location.postalCode}`}
+        </Location>
       </div>
       <Favorites>В избранное</Favorites>
     </Wrapper>

@@ -1,3 +1,5 @@
+/* @flow */
+
 const apiUrl = 'https://api.jqestate.ru/v1';
 export const imagesUrl = 'https://images.jqestate.ru';
 
@@ -21,14 +23,22 @@ const request = (method, resource, headers, body = null) =>
     body,
   }).then(checkStatus);
 
-export function get(resource, headers) {
+export function get(resource: string, headers: ?Object): Promise<any> {
   return request('GET', resource, headers).then(r => r.json());
 }
 
-export function post(resource, body, headers) {
+export function post(
+  resource: string,
+  body: JSON,
+  headers: ?Object,
+): Promise<any> {
   return request('POST', resource, headers, JSON.stringify(body));
 }
 
-export function put(resource, body, headers) {
+export function put(
+  resource: string,
+  body: JSON,
+  headers: ?Object,
+): Promise<any> {
   return request('PUT', resource, headers, JSON.stringify(body));
 }
