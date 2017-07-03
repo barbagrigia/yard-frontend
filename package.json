@@ -25,15 +25,18 @@
     "husky": "^0.14.1",
     "react-scripts": "1.0.7"
   },
+  "now": {
+    "alias": "yard"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint --ext=js,jsx src",
+    "flow": "flow",
     "precommit": "yarn lint && yarn flow",
     "prepush": "yarn lint && yarn flow",
-    "deploy": "yarn build && cd build && now --public --name yard-frontend",
-    "flow": "flow"
+    "deploy": "yarn build && now ./build --public --name yard-frontend --token $NOW_TOKEN && now alias --token $NOW_TOKEN"
   }
 }
