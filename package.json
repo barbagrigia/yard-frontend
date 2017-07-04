@@ -23,6 +23,7 @@
     "flow-bin": "^0.49.1",
     "flow-typed": "^2.1.2",
     "husky": "^0.14.1",
+    "now": "^7.1.1",
     "react-scripts": "1.0.7"
   },
   "now": {
@@ -35,6 +36,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ext=js,jsx src",
     "flow": "flow",
+    "flow-typed": "flow-typed",
     "precommit": "yarn lint && yarn flow",
     "prepush": "yarn lint && yarn flow",
     "deploy": "yarn build && now ./build --public --name yard-frontend --token $NOW_TOKEN && now alias --token $NOW_TOKEN"
