@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - stable
+cache:
+  yarn: true
+  directories:
+    - node_modules
+install:
+  - yarn install
+  - yarn flow-typed install
+script:
+  - yarn prepush
+deploy:
+  on:
+    branch: master
+  provider: script
+  skip_cleanup: true
+  script:
+    - yarn deploy
