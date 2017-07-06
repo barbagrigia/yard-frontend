@@ -2,6 +2,11 @@
   "name": "yard-frontend",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "barbagrigia/yard-frontend"
+  },
   "dependencies": {
     "normalize.css": "^7.0.0",
     "react": "^15.6.1",
