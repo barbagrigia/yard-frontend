@@ -33,7 +33,7 @@
 </a>
 <!-- Flow Logo -->
 <a href="https://flow.org">
-  <img src="http://www.stickpng.com/assets/images/5847f8b8cef1014c0b5e48b0.png" height="64px" alt="flow" title="Flow" />
+  <img src="https://res.cloudinary.com/barbagrigia/image/upload/v1499332421/flow-logo_nwu6ow.png" height="64px" alt="flow" title="Flow" />
 </a>
 
 ## Install
@@ -50,7 +50,7 @@ Open http://localhost:3000 to view it in the browser.
 builds the app for production to the build folder.
 
 `yarn deploy`
-deploys the app on the now.sh.
+deploys the app on the [now.sh](https://zeit.co/now).
 
 `yarn lint` runs linter.
 
