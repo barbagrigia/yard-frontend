@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 `;
 
 const Name = styled.h1`
-  fcolor: #3e4247;
+  color: #3e4247;
   font-family: "Philosopher";
   font-size: 2rem;
   line-height: 1.125;
@@ -22,7 +22,7 @@ const Name = styled.h1`
 `;
 
 const Location = styled.small`
-  fcolor: #a9afb6;
+  color: #a9afb6;
   display: block;
   font-size: 0.875rem;
   font-weight: 300;
