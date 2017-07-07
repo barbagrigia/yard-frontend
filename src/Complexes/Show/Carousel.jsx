@@ -33,19 +33,18 @@ const Button = styled.button`
 
 type Props = {
   images: ImagesType,
+  imageAlt: string,
 };
 
-export default ({ images }: Props) =>
+export default ({ images, imageAlt }: Props) =>
   (<div>
     <Images>
-      {images.map(image =>
-        <Image key={image.id} src={`${getImageUrl(image.id)}`} alt={`Image ${image.id}`} />,
-      )}
+      {images.map(image => <Image key={image.id} src={getImageUrl(image.id)} alt={imageAlt} />)}
     </Images>
     <Grid>
       <Row>
         <Button>
-          {`${images.length} `}
+          {images.length}{' '}
           <Pluralizer
             numeral={images.length}
             one="фотография"

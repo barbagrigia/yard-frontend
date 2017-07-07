@@ -52,7 +52,7 @@ class Complex extends Component {
         <BodyClassName className="complex">
           <main>
             <Header name={name} location={location} />
-            <Carousel images={images} />
+            <Carousel images={images} imageAlt={`Фотография ЖК ${name}`} />
             <Summary
               units={units}
               details={details}
