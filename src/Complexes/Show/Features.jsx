@@ -52,7 +52,7 @@ function formatCeilHeight({ from, to }: RangeType): string {
 
 export default ({ statistics, details }: Props) => {
   const { propertiesCount, price = {}, totalArea = {} } = statistics;
-  const { from = {}, to = {} } = price;
+  const { from: priceFrom = {}, to: priceTo = {} } = price;
   const {
     propertyKind,
     security,
@@ -86,12 +86,13 @@ export default ({ statistics, details }: Props) => {
                 {kinds[propertyKind]}
               </Value>
             </Feature>}
-          {from &&
-            to &&
+          {priceFrom &&
+            priceTo &&
             <Feature>
               <Label>Цены</Label>
               <Value>
-                от {(from.rub / 1000000).toFixed(1)} до {(to.rub / 1000000).toFixed(1)} млн
+                от {(priceFrom.rub / 1000000).toFixed(1)} до {(priceTo.rub / 1000000).toFixed(1)}{' '}
+                млн
               </Value>
             </Feature>}
           {security &&
