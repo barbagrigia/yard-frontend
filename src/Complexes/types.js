@@ -1,5 +1,10 @@
 /* @flow */
 
+export type RangeType = {
+  from: number,
+  to: number,
+};
+
 export type LocationType = {
   latitude?: number,
   localityId?: number,
@@ -35,10 +40,7 @@ export type StatisticsType = {
       rub: number,
     },
   },
-  totalResaleArea?: {
-    from: number,
-    to: number,
-  },
+  totalResaleArea?: RangeType,
   resalePrice?: {
     from: {
       usd: number,
@@ -52,10 +54,7 @@ export type StatisticsType = {
     },
   },
   propertiesCount?: number,
-  totalPrimaryArea?: {
-    from: number,
-    to: number,
-  },
+  totalPrimaryArea?: RangeType,
   primaryPrice?: {
     from: {
       usd: number,
@@ -69,10 +68,7 @@ export type StatisticsType = {
     },
   },
   primaryPropertiesCount?: number,
-  totalArea?: {
-    from: number,
-    to: number,
-  },
+  totalArea?: RangeType,
 };
 
 export type DetailsType = {
@@ -82,10 +78,7 @@ export type DetailsType = {
   startQuarter?: string,
   commissioningYear?: number,
   commissioningQuarter?: string,
-  ceilHeight?: {
-    to: number,
-    from: number,
-  },
+  ceilHeight?: RangeType,
   parkings?: number,
   maintenanceCosts?: number,
   propertyKind?: string,
