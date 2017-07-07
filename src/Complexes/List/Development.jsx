@@ -12,12 +12,11 @@ const Wrapper = styled.div`
   padding-top: 5rem;
 `;
 
-export default () => (
-  <Wrapper>
+export default () =>
+  (<Wrapper>
     <Grid>
       <Row center="lg">
         <img src={developmentImg} alt="Compass Development Logo" />
       </Row>
     </Grid>
-  </Wrapper>
-);
+  </Wrapper>);

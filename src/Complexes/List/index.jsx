@@ -36,17 +36,17 @@ class Complexes extends Component {
             <Development />
             <Intro />
             <Grid>
-              {complexes.map(complex => (
-                <Card
+              {complexes.map(complex =>
+                (<Card
                   key={complex.id}
                   id={complex.id}
                   location={complex.location}
                   name={complex.name}
                   img={complex.images[0].id}
                 >
-                  →
-                </Card>
-              ))}
+                  {complex.shortDescription}
+                </Card>),
+              )}
             </Grid>
           </main>
         </BodyClassName>

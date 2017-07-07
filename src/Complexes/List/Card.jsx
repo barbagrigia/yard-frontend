@@ -72,8 +72,8 @@ type Props = {
   children: Children,
 };
 
-export default ({ id, img, location, name, children }: Props) => (
-  <Card to={`/complexes/${id}`}>
+export default ({ id, img, location, name, children }: Props) =>
+  (<Card to={`/complexes/${id}`}>
     <Image
       style={{
         backgroundImage: `url(${getImageUrl(img)})`,
@@ -85,8 +85,11 @@ export default ({ id, img, location, name, children }: Props) => (
         {location.street && `${location.street}, `}
         {location.house && `${location.house}`}
       </Location>
-      <Name>{name}</Name>
-      <Info>{children}</Info>
+      <Name>
+        {name}
+      </Name>
+      <Info>
+        {children}
+      </Info>
     </Description>
-  </Card>
-);
+  </Card>);

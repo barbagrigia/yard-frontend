@@ -14,9 +14,7 @@ const Images = styled.div`
   position: relative;
 `;
 
-const Image = styled.img`
-  height: 400px;
-`;
+const Image = styled.img`height: 400px;`;
 
 const Button = styled.button`
   background-color: #00779a;
@@ -37,22 +35,19 @@ type Props = {
   images: ImagesType,
 };
 
-export default ({ images }: Props) => (
-  <div>
+export default ({ images }: Props) =>
+  (<div>
     <Images>
-      {images.map(image => (
-        <Image
-          key={image.id}
-          src={`${getImageUrl(image.id)}`}
-          alt={`Image ${image.id}`}
-        />
-      ))}
+      {images.map(image =>
+        <Image key={image.id} src={`${getImageUrl(image.id)}`} alt={`Image ${image.id}`} />,
+      )}
     </Images>
     <Grid>
       <Row>
         <Button>
+          {`${images.length} `}
           <Pluralizer
-            num={images.length}
+            numeral={images.length}
             one="фотография"
             few="фотографии"
             other="фотографий"
@@ -60,5 +55,4 @@ export default ({ images }: Props) => (
         </Button>
       </Row>
     </Grid>
-  </div>
-);
+  </div>);

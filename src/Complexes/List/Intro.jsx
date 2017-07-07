@@ -38,20 +38,19 @@ const Contact = styled.button`
   }
 `;
 
-export default () => (
-  <Intro>
+export default () =>
+  (<Intro>
     <Grid>
       <Row>
         <Col lgOffset={2} lg={8}>
           <Title>Discover Our New Developments</Title>
           <Info>
-            Compass brings a modern approach to new development marketing and
-            sales. From boutique rental conversions to luxurious ground-up
-            condominiums, browse our portfolio of current offerings.
+            Compass brings a modern approach to new development marketing and sales. From boutique
+            rental conversions to luxurious ground-up condominiums, browse our portfolio of current
+            offerings.
           </Info>
           <Contact type="submit">Contact The Team</Contact>
         </Col>
       </Row>
     </Grid>
-  </Intro>
-);
+  </Intro>);

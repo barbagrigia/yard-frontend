@@ -13,7 +13,7 @@ const Footer = styled.footer`
 `;
 
 const Line = styled.hr`
-  background-color: #3E4247;
+  background-color: #3e4247;
   border: none;
   height: 2px;
   margin: 0 0 1rem 0;
@@ -72,8 +72,8 @@ const Disclaimer = styled.p`
   margin: 6rem 0 0;
 `;
 
-export default () => (
-  <Footer>
+export default () =>
+  (<Footer>
     <Grid>
       <Row>
         <Col lg={2}>
@@ -100,13 +100,11 @@ export default () => (
       <Row>
         <Col lgOffset={4} lg={8}>
           <Disclaimer>
-            Любая информация, представленная на данном сайте, носит
-            исключительно информационный характер и ни при каких условиях
-            не является публичной офертой, определяемой положениями статьи
-            437 ГК РФ. © ООО «Ярд», 2017
+            Любая информация, представленная на данном сайте, носит исключительно информационный
+            характер и ни при каких условиях не является публичной офертой, определяемой положениями
+            статьи 437 ГК РФ. © ООО «Ярд», 2017
           </Disclaimer>
         </Col>
       </Row>
     </Grid>
-  </Footer>
-);
+  </Footer>);

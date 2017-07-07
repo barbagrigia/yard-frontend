@@ -3,6 +3,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Title from './Title';
+import Pluralizer from './../../components/Pluralizer';
+import type { DetailsType } from './../types';
 
 const Header = styled.header`
   display: flex;
@@ -20,25 +22,28 @@ const Subtitle = styled.small`
   margin-top: 0.625rem;
 `;
 
-export default () => (
-  <Header>
-    <Title>
-      950
-      <Subtitle>
-        предложений
-      </Subtitle>
-    </Title>
-    <Title>
-      John McAslan + Partners
-      <Subtitle>
-        архитектор
-      </Subtitle>
-    </Title>
-    <Title>
-      Группа «ПСН»
-      <Subtitle>
-        застройщик
-      </Subtitle>
-    </Title>
-  </Header>
-);
+type Props = {
+  units: number,
+  details: DetailsType,
+};
+
+export default ({ units, details }: Props) =>
+  (<Header>
+    {units > 0 &&
+      <Title>
+        {units}
+        <Subtitle>
+          <Pluralizer numeral={units} one="предложение" few="предложения" other="предложений" />
+        </Subtitle>
+      </Title>}
+    {details.architect &&
+      <Title>
+        {details.architect}
+        <Subtitle>архитектор</Subtitle>
+      </Title>}
+    {details.developer &&
+      <Title>
+        {details.developer}
+        <Subtitle>застройщик</Subtitle>
+      </Title>}
+  </Header>);
