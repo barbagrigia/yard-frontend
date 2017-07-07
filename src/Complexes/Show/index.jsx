@@ -31,18 +31,35 @@ class Complex extends Component {
   }
 
   render() {
-    const { name, location = {}, images = [], statistics = {} } = this.state;
+    const {
+      name = '',
+      location = {},
+      images = [],
+      units = 0,
+      details = {},
+      statistics = {},
+      fullDescription = '',
+      amenities = [],
+    } = this.state;
 
     return (
       <div>
         <Helmet>
-          <title>{`${name}`} | Compass Development</title>
+          <title>
+            {`${name}`} | Compass Development
+          </title>
         </Helmet>
         <BodyClassName className="complex">
           <main>
             <Header name={name} location={location} />
-            <Carousel images={images} />
-            <Summary statistics={statistics} />
+            <Carousel images={images} imageAlt={`Фотография ЖК ${name}`} />
+            <Summary
+              units={units}
+              details={details}
+              statistics={statistics}
+              fullDescription={fullDescription}
+              amenities={amenities}
+            />
             <Offers />
             <Location />
             <Directions />

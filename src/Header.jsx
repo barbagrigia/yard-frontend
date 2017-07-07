@@ -18,9 +18,7 @@ const LogoLink = styled(Link)`
   margin-top: 1.25rem;
 `;
 
-const Nav = styled.nav`
-  text-align: right;
-`;
+const Nav = styled.nav`text-align: right;`;
 
 const NavLink = styled(Link)`
   color: #3e4247;
@@ -36,8 +34,8 @@ const NavLink = styled(Link)`
   }
 `;
 
-export default () => (
-  <Header>
+export default () =>
+  (<Header>
     <Grid>
       <Row between="lg" middle="lg">
         <Col lg={2}>
@@ -54,5 +52,4 @@ export default () => (
         </Col>
       </Row>
     </Grid>
-  </Header>
-);
+  </Header>);

@@ -1,20 +1,15 @@
 /* @flow */
 
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import './App.css';
 import Header from './Header';
 import Footer from './Footer';
 import Complexes from './Complexes/List';
 import Complex from './Complexes/Show';
 
-const App = () => (
-  <Router>
+const App = () =>
+  (<Router>
     <div className="App">
       <Header />
       <Switch>
@@ -24,7 +19,6 @@ const App = () => (
       </Switch>
       <Footer />
     </div>
-  </Router>
-);
+  </Router>);
 
 export default App;

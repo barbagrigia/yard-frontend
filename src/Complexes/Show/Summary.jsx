@@ -7,19 +7,22 @@ import Hr from './Hr';
 import Features from './Features';
 import Description from './Description';
 import Infrastructure from './Infrastructure';
-import type { StatisticsType } from './../types';
+import type { DetailsType, StatisticsType, AmenitiesType } from './../types';
 
 type Props = {
+  units: number,
+  details: DetailsType,
   statistics: StatisticsType,
+  fullDescription: string,
+  amenities: AmenitiesType,
 };
 
-export default ({ statistics }: Props) => (
-  <Grid>
-    <Header />
+export default ({ units, details, statistics, fullDescription, amenities }: Props) =>
+  (<Grid>
+    <Header units={units} details={details} />
     <Hr />
-    <Features statistics={statistics} />
-    <Description />
+    <Features statistics={statistics} details={details} />
+    {fullDescription && <Description fullDescription={fullDescription} />}
     <Hr />
-    <Infrastructure />
-  </Grid>
-);
+    {amenities.length > 0 && <Infrastructure amenities={amenities} />}
+  </Grid>);

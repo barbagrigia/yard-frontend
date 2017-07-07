@@ -1,5 +1,10 @@
 /* @flow */
 
+export type RangeType = {
+  from: number,
+  to: number,
+};
+
 export type LocationType = {
   latitude?: number,
   localityId?: number,
@@ -18,7 +23,7 @@ export type LocationType = {
 
 export type ImagesType = Array<{
   id: string,
-  isPublic?: boolean,
+  isPublic: boolean,
 }>;
 
 export type StatisticsType = {
@@ -35,10 +40,7 @@ export type StatisticsType = {
       rub: number,
     },
   },
-  totalResaleArea?: {
-    from: number,
-    to: number,
-  },
+  totalResaleArea?: RangeType,
   resalePrice?: {
     from: {
       usd: number,
@@ -52,10 +54,7 @@ export type StatisticsType = {
     },
   },
   propertiesCount?: number,
-  totalPrimaryArea?: {
-    from: number,
-    to: number,
-  },
+  totalPrimaryArea?: RangeType,
   primaryPrice?: {
     from: {
       usd: number,
@@ -69,11 +68,26 @@ export type StatisticsType = {
     },
   },
   primaryPropertiesCount?: number,
-  totalArea?: {
-    from: number,
-    to: number,
-  },
+  totalArea?: RangeType,
 };
+
+export type DetailsType = {
+  architect?: string,
+  developer?: string,
+  startYear?: number,
+  startQuarter?: string,
+  commissioningYear?: number,
+  commissioningQuarter?: string,
+  ceilHeight?: RangeType,
+  parkings?: number,
+  maintenanceCosts?: number,
+  propertyKind?: string,
+  security?: string,
+  undergroundGarages?: string,
+  constructionKind?: string,
+};
+
+export type AmenitiesType = Array<string>;
 
 export type ComplexType = {
   commissioningYear: number,
@@ -88,6 +102,9 @@ export type ComplexType = {
   updatedAt: string,
   location: LocationType,
   state: string,
+  units: number,
+  amenities: AmenitiesType,
+  details: DetailsType,
   statistics: StatisticsType,
   keysIssueDate: string,
   purchaseTimeConditions: {
@@ -95,6 +112,8 @@ export type ComplexType = {
     oralReservation: number,
   },
   commissioningQuarter: number,
+  fullDescription: string,
+  shortDescription: string,
   linkedContactIds: Array<string>,
   responsibleUser: {
     id: number,

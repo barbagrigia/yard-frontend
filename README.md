@@ -1,8 +1,8 @@
-<h1 style="text-align:center;color:#fff;background-color:#3e4247;font-family:Monaco">YARD-FRONTEND</h1>
+<h1 align="center" style="color:#fff;background-color:#3e4247;font-family:Monaco">YARD-FRONTEND</h1>
 <br />
-<div style="text-align:center"><strong>This project is for a 🔥 <a style="color:#fff;background-color:#f9b0c6;" href="http://kurskurskurs.erodionov.ru"><em>COURSE ON THE FRONTEND</em></a> by <a href="https://github.com/evgenyrodionov">Evgeny Rodionov</a></strong></div>
+<div align="center"><strong>This project is for a 🔥 <a style="color:#fff;background-color:#f9b0c6;" href="http://kurskurskurs.erodionov.ru"><em>COURSE ON THE FRONTEND</em></a> by <a href="https://github.com/evgenyrodionov">Evgeny Rodionov</a></strong></div>
 <br />
-<div style="text-align:center">
+<div align="center">
   <!-- Build Status -->
   <a href="https://travis-ci.org/barbagrigia/yard-frontend">
     <img src="https://travis-ci.org/barbagrigia/yard-frontend.svg?branch=master" alt="Build Status" />
@@ -22,6 +22,10 @@
 <!-- React Logo -->
 <a href="https://facebook.github.io/react">
   <img src="https://www.shareicon.net/download/2016/07/08/117367_logo.svg" height="64px" alt="React" title="React" />
+</a>
+<!-- React Router Logo -->
+<a href="https://reacttraining.com/react-router/">
+  <img src="https://reacttraining.com/react-router/android-chrome-144x144.png" height="64px" alt="React Router" title="React Router">
 </a>
 <!-- styled-components Logo -->
 <a href="https://www.styled-components.com">
@@ -71,5 +75,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [now](https://github.com/zeit/now-cli)
 
 
-## License
-MIT
+## MIT License
+Copyright © 2017 [Vlad Trukhin](https://github.com/barbagrigia)

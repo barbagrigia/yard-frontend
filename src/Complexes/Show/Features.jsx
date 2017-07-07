@@ -4,7 +4,8 @@ import React from 'react';
 import { Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
 import Title from './Title';
-import type { StatisticsType } from './../types';
+import type { StatisticsType, DetailsType, RangeType } from './../types';
+import { kinds, securityKinds, quarters, constructionKinds } from '../dictionaries';
 
 const Features = styled.section`
   padding-top: 2rem;
@@ -39,54 +40,129 @@ const Value = styled.dd`
 
 type Props = {
   statistics: StatisticsType,
+  details: DetailsType,
 };
 
-export default ({ statistics }: Props) => (
-  <Features>
-    <Title>Характеристики</Title>
-    <Row>
-      <Col lg={4}>
-        <Feature>
-          <Label>Количество квартир:</Label>
-          <Value>{statistics.propertiesCount}</Value>
-        </Feature>
-        <Feature>
-          <Label>Статус:</Label>
-          <Value>Квартиры</Value>
-        </Feature>
-        <Feature>
-          <Label>Цены:</Label>
-          <Value>от 5.3 до 143.5 млн</Value>
-        </Feature>
-      </Col>
-      <Col lg={4}>
-        <Feature>
-          <Label>Количество квартир:</Label>
-          <Value>{statistics.propertiesCount}</Value>
-        </Feature>
-        <Feature>
-          <Label>Количество квартир:</Label>
-          <Value>{statistics.propertiesCount}</Value>
-        </Feature>
-        <Feature>
-          <Label>Количество квартир:</Label>
-          <Value>{statistics.propertiesCount}</Value>
-        </Feature>
-      </Col>
-      <Col lg={4}>
-        <Feature>
-          <Label>Количество квартир:</Label>
-          <Value>{statistics.propertiesCount}</Value>
-        </Feature>
-        <Feature>
-          <Label>Количество квартир:</Label>
-          <Value>{statistics.propertiesCount}</Value>
-        </Feature>
-        <Feature>
-          <Label>Количество квартир:</Label>
-          <Value>{statistics.propertiesCount}</Value>
-        </Feature>
-      </Col>
-    </Row>
-  </Features>
-);
+function formatCeilHeight({ from, to }: RangeType): string {
+  if (from === to) {
+    return `${Math.round(from * 100) / 100}`;
+  }
+  return `${Math.round(from * 100) / 100} - ${Math.round(to * 100) / 100}`;
+}
+
+export default ({ statistics, details }: Props) => {
+  const { propertiesCount, price = {}, totalArea = {} } = statistics;
+  const { from: priceFrom = {}, to: priceTo = {} } = price;
+  const {
+    propertyKind,
+    security,
+    constructionKind,
+    ceilHeight,
+    maintenanceCosts,
+    startQuarter,
+    startYear,
+    commissioningQuarter,
+    commissioningYear,
+    parkings,
+    undergroundGarages,
+  } = details;
+
+  return (
+    <Features>
+      <Title>Характеристики</Title>
+      <Row>
+        <Col lg={4}>
+          {propertiesCount &&
+            <Feature>
+              <Label>Количество квартир</Label>
+              <Value>
+                {propertiesCount}
+              </Value>
+            </Feature>}
+          {propertyKind &&
+            <Feature>
+              <Label>Статус</Label>
+              <Value>
+                {kinds[propertyKind]}
+              </Value>
+            </Feature>}
+          {priceFrom &&
+            priceTo &&
+            <Feature>
+              <Label>Цены</Label>
+              <Value>
+                от {(priceFrom.rub / 1000000).toFixed(1)} до {(priceTo.rub / 1000000).toFixed(1)}{' '}
+                млн
+              </Value>
+            </Feature>}
+          {security &&
+            <Feature>
+              <Label>Безопасность</Label>
+              <Value>
+                {securityKinds[security]}
+              </Value>
+            </Feature>}
+        </Col>
+        <Col lg={4}>
+          {constructionKind &&
+            <Feature>
+              <Label>Конструкция корпусов</Label>
+              <Value>
+                {constructionKinds[constructionKind]}
+              </Value>
+            </Feature>}
+          {totalArea &&
+            <Feature>
+              <Label>Площадь</Label>
+              <Value>
+                от {Math.round(totalArea.from)} до {Math.round(totalArea.to)} м²
+              </Value>
+            </Feature>}
+          {ceilHeight &&
+            <Feature>
+              <Label>Высота потолков</Label>
+              <Value>
+                {formatCeilHeight(ceilHeight)} м
+              </Value>
+            </Feature>}
+          <Feature>
+            <Label>Обслуживание</Label>
+            <Value>
+              {maintenanceCosts} руб / м² / месяц
+            </Value>
+          </Feature>
+        </Col>
+        <Col lg={4}>
+          {startQuarter &&
+            startYear &&
+            <Feature>
+              <Label>Начало строительства</Label>
+              <Value>
+                {quarters[startQuarter]} квартал {startYear} года
+              </Value>
+            </Feature>}
+          {commissioningQuarter &&
+            commissioningYear &&
+            <Feature>
+              <Label>Конец строительства</Label>
+              <Value>
+                {quarters[commissioningQuarter]} квартал {commissioningYear} года
+              </Value>
+            </Feature>}
+          <Feature>
+            <Label>Наземная парковка</Label>
+            <Value>
+              {parkings ? `${parkings} м/м` : 'Нет'}
+            </Value>
+          </Feature>
+          <Feature>
+            <Label>Подземная парковка</Label>
+            <Value>
+              {undergroundGarages ? `${undergroundGarages} м/м` : 'Нет'}
+            </Value>
+          </Feature>
+        </Col>
+      </Row>
+    </Features>
+  );
+};
