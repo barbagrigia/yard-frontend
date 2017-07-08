@@ -55,11 +55,17 @@ const Button = styled.button`
   padding: 0.75rem 2rem;
 `;
 
-export default () =>
+type Props = {
+  name: string,
+};
+
+export default ({ name }: Props) =>
   (<Offers>
     <Grid>
       <Row center="lg">
-        <Title>Предложения в ЖК «Полянка/44»</Title>
+        <Title>
+          Предложения в ЖК «{name}»
+        </Title>
       </Row>
       <Row>
         <Col lg={4}>
