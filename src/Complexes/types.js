@@ -6,12 +6,12 @@ export type RangeType = {
 };
 
 export type LocationType = {
-  latitude?: number,
+  latitude?: string,
   localityId?: number,
   subLocalityName?: string,
   subwayIds?: Array<number>,
   countryName?: string,
-  longitude?: number,
+  longitude?: string,
   postalCode?: number,
   countryId?: number,
   house?: number,

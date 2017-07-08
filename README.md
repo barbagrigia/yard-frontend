@@ -69,6 +69,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [react router](https://github.com/ReactTraining/react-router)
 - [react-body-classname](https://github.com/iest/react-body-classname)
 - [react-helmet](https://github.com/nfl/react-helmet)
+- [react-mapbox-gl](https://github.com/alex3165/react-mapbox-gl) with [mapbox-gl](https://github.com/mapbox/mapbox-gl-js)
 - [flow](https://flow.org) with [flow-typed](https://github.com/flowtype/flow-typed)
 - [eslint](http://eslint.org) with [aribnb config](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
 - [husky](https://github.com/typicode/husky)

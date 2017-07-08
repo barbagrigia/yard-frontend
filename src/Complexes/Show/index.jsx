@@ -60,9 +60,9 @@ class Complex extends Component {
               fullDescription={fullDescription}
               amenities={amenities}
             />
-            <Offers />
+            <Offers name={name} />
             <Location />
-            <Directions />
+            <Directions location={location} />
           </main>
         </BodyClassName>
       </div>

@@ -25,9 +25,7 @@ const OfferTitle = styled.h3`
   margin: 0 0 1.5rem;
 `;
 
-const Feature = styled.div`
-  margin-bottom: 1.5rem;
-`;
+const Feature = styled.div`margin-bottom: 1.5rem;`;
 
 const FeatureTitle = styled.div`
   color: #a9afb6;
@@ -57,11 +55,17 @@ const Button = styled.button`
   padding: 0.75rem 2rem;
 `;
 
-export default () => (
-  <Offers>
+type Props = {
+  name: string,
+};
+
+export default ({ name }: Props) =>
+  (<Offers>
     <Grid>
       <Row center="lg">
-        <Title>Предложения в ЖК «Полянка/44»</Title>
+        <Title>
+          Предложения в ЖК «{name}»
+        </Title>
       </Row>
       <Row>
         <Col lg={4}>
@@ -114,5 +118,4 @@ export default () => (
         </Col>
       </Row>
     </Grid>
-  </Offers>
-);
+  </Offers>);
