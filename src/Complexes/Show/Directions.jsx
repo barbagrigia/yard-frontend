@@ -4,18 +4,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Hr from './Hr';
+import MapBox from './MapBox';
+import type { LocationType } from './../types';
 
-const Directions = styled.section`
-  background-color: #fff;
-`;
-
-const MapImage = styled.img`
-  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.5);
-  height: 306px;
-  margin-bottom: 4rem;
-  margin-top: -130px;
-  width: 100%;
-`;
+const Directions = styled.section`background-color: #fff;`;
 
 const Wrapper = styled.div`
   background-color: #fff;
@@ -24,9 +16,7 @@ const Wrapper = styled.div`
   margin-top: -130px;
 `;
 
-const Direction = styled.div`
-  padding: 1.5rem 1.5rem 1.5625rem 1.5rem;
-`;
+const Direction = styled.div`padding: 1.5rem 1.5rem 1.5625rem 1.5rem;`;
 
 const Title = styled.p`
   color: #3e4247;
@@ -42,18 +32,16 @@ const Distance = styled.p`
   margin: 0;
 `;
 
-const PUBLIC_URL: string = process.env.PUBLIC_URL || '';
+type Props = {
+  location: LocationType,
+};
 
-export default () => (
-  <Directions>
+export default ({ location }: Props) =>
+  (<Directions>
     <Grid>
       <Row>
         <Col lg={6}>
-          <MapImage
-            src={`${PUBLIC_URL}/img/map.png`}
-            alt="Якиманка"
-            title="Якиманка"
-          />
+          <MapBox location={location} />
         </Col>
         <Col lg={6}>
           <Wrapper>
@@ -76,5 +64,4 @@ export default () => (
         </Col>
       </Row>
     </Grid>
-  </Directions>
-);
+  </Directions>);

@@ -62,7 +62,7 @@ class Complex extends Component {
             />
             <Offers />
             <Location />
-            <Directions />
+            <Directions location={location} />
           </main>
         </BodyClassName>
       </div>

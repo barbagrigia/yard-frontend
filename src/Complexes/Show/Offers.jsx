@@ -25,9 +25,7 @@ const OfferTitle = styled.h3`
   margin: 0 0 1.5rem;
 `;
 
-const Feature = styled.div`
-  margin-bottom: 1.5rem;
-`;
+const Feature = styled.div`margin-bottom: 1.5rem;`;
 
 const FeatureTitle = styled.div`
   color: #a9afb6;
@@ -57,8 +55,8 @@ const Button = styled.button`
   padding: 0.75rem 2rem;
 `;
 
-export default () => (
-  <Offers>
+export default () =>
+  (<Offers>
     <Grid>
       <Row center="lg">
         <Title>Предложения в ЖК «Полянка/44»</Title>
@@ -114,5 +112,4 @@ export default () => (
         </Col>
       </Row>
     </Grid>
-  </Offers>
-);
+  </Offers>);
