@@ -7,29 +7,23 @@ import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
 import type { LocationType } from './../types';
 
 const MapBox = ReactMapboxGl({
-  accessToken:
-    'pk.eyJ1IjoianVzdHVzZWJyYWluIiwiYSI6ImNpbHV1dWlmYTAwNmp2Zm02NjZkZmIybGkifQ.feSAgXjbU00mlAjBQyv1lQ',
+  accessToken: process.env.REACT_APP_MAPBOX_TOKEN,
 });
 
 type Props = {
   location: LocationType,
+  mapStyle: Object,
 };
 
-export default ({ location }: Props) => {
-  const { latitude = 0, longitude = 0 } = location;
+export default ({ location, mapStyle }: Props) => {
+  const { latitude = 55.75222, longitude = 37.61556 } = location;
 
   return (
     <MapBox
       style="mapbox://styles/mapbox/light-v9"
       zoom={[16]}
       center={[longitude, latitude]}
-      containerStyle={{
-        boxShadow: '0 0 30px 0 rgba(0, 0, 0, 0.5)',
-        height: '306px',
-        marginBottom: '4rem',
-        marginTop: '-130px',
-        width: '100%',
-      }}
+      containerStyle={mapStyle}
     >
       <Layer
         type="symbol"

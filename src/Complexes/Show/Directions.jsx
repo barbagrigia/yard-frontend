@@ -32,6 +32,14 @@ const Distance = styled.p`
   margin: 0;
 `;
 
+const mapStyle = {
+  boxShadow: '0 0 30px 0 rgba(0, 0, 0, 0.5)',
+  height: '306px',
+  marginBottom: '4rem',
+  marginTop: '-130px',
+  width: '100%',
+};
+
 type Props = {
   location: LocationType,
 };
@@ -41,7 +49,7 @@ export default ({ location }: Props) =>
     <Grid>
       <Row>
         <Col lg={6}>
-          <MapBox location={location} />
+          <MapBox location={location} mapStyle={mapStyle} />
         </Col>
         <Col lg={6}>
           <Wrapper>
