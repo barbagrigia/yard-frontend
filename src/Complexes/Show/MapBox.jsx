@@ -12,10 +12,10 @@ const MapBox = ReactMapboxGl({
 
 type Props = {
   location: LocationType,
-  mapStyle: Object,
+  style: Object,
 };
 
-export default ({ location, mapStyle }: Props) => {
+export default ({ location, style }: Props) => {
   const { latitude = 55.75222, longitude = 37.61556 } = location;
 
   return (
@@ -23,7 +23,7 @@ export default ({ location, mapStyle }: Props) => {
       style="mapbox://styles/mapbox/light-v9"
       zoom={[16]}
       center={[longitude, latitude]}
-      containerStyle={mapStyle}
+      containerStyle={style}
     >
       <Layer
         type="symbol"
