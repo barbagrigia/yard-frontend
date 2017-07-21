@@ -37,7 +37,7 @@ const Image = styled.img`
   max-height: calc(100vh - ${props => props.gutter} - 6.125rem - 2px);
   max-width: 80%;
   opacity: ${props => props.opacity};
-  transition: transform, opacity .3s ease;
+  transition: transform .3s ease;
   will-change: transform, opacity;
   transform: ${props => props.transform};
   transform-origin: center bottom;
