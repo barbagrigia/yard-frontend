@@ -18,7 +18,7 @@ function checkStatus(response) {
 }
 
 const request = (method, resource, headers, body = null) =>
-  fetch(encodeURI(apiUrl + resource), {
+  fetch(apiUrl + resource, {
     method,
     body,
   }).then(checkStatus);
