@@ -15,6 +15,10 @@
   <a href="https://david-dm.org/barbagrigia/yard-frontend?type=dev">
     <img src="https://david-dm.org/barbagrigia/yard-frontend/dev-status.svg" alt="devDependency Status" />
   </a>
+  <!-- Prettier Badge -->
+  <a href="https://github.com/prettier/prettier">
+    <img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" alt="styled with prettier" />
+  </a>
 </div>
 <br />
 
@@ -63,18 +67,18 @@ deploys the app on the [now.sh](https://zeit.co/now).
 ### Dependencies
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-- [styled-components](https://github.com/styled-components/styled-components)
+- [💅 styled-components](https://github.com/styled-components/styled-components)
 - [normalize.css](https://github.com/necolas/normalize.css)
 - [react-flexbox-grid](https://github.com/roylee0704/react-flexbox-grid)
-- [react router](https://github.com/ReactTraining/react-router)
+- [react-router](https://github.com/ReactTraining/react-router)
 - [react-body-classname](https://github.com/iest/react-body-classname)
 - [react-helmet](https://github.com/nfl/react-helmet)
 - [react-mapbox-gl](https://github.com/alex3165/react-mapbox-gl) with [mapbox-gl](https://github.com/mapbox/mapbox-gl-js)
+- [react-modal](https://github.com/reactjs/react-modal)
 - [flow](https://flow.org) with [flow-typed](https://github.com/flowtype/flow-typed)
 - [eslint](http://eslint.org) with [aribnb config](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
 - [husky](https://github.com/typicode/husky)
 - [now](https://github.com/zeit/now-cli)
-
 
 ## MIT License
 Copyright © 2017 [Vlad Trukhin](https://github.com/barbagrigia)
