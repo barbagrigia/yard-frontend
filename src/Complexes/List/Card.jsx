@@ -13,10 +13,12 @@ const Card = styled(Link)`
   display: flex;
   margin-bottom: 3rem;
   text-decoration: none;
+  overflow: hidden;
 
   &:hover {
+    transition: box-shadow .3s ease;
+    will-change: box-shadow;
     box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.3);
-    transition: box-shadow .25s ease;
   }
 
   &:last-child {
@@ -26,13 +28,19 @@ const Card = styled(Link)`
 
 const Image = styled.div`
   background-clip: content-box;
-  background-position: 50%;
+  background-position: center center;
   background-size: cover;
   box-sizing: border-box;
   display: flex;
   flex-basis: 41.66666667%;
-  height: 350px;
+  height: 21.875rem;
   padding-right: 0.5rem;
+
+  &:hover {
+    transition: transform .3s ease;
+    will-change: transform;
+    transform: scale(1.02);
+  }
 `;
 
 const Description = styled.div`
