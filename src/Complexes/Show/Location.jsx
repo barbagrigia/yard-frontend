@@ -37,7 +37,7 @@ const Link = styled(RouterLink)`
 `;
 
 const Image = styled.img`
-  height: 560px;
+  height: 35rem;
   margin-bottom: 12.125rem;
   margin-top: 4rem;
   width: 100%;
