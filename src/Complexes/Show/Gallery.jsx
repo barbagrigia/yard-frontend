@@ -58,6 +58,8 @@ const modalStyles = {
   },
   content: {
     background: 'none',
+    border: 'none',
+    borderRadius: 'none',
     position: 'fixed',
     top: 0,
     left: 0,

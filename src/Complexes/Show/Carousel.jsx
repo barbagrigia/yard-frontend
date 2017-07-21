@@ -22,7 +22,7 @@ const Images = styled.div`
   justify-content: flex-start;
   overflow: hidden;
   position: relative;
-  max-width: calc(100vw - 2px);
+  max-width: 100vw;
 
   @media (max-width: 1024px) {
     position: absolute;
@@ -34,16 +34,16 @@ const Images = styled.div`
 
 const Image = styled.img`
   cursor: pointer;
-  max-height: calc(100vh - ${props => props.gutter} - 6.125rem - 2px);
+  max-height: calc(100vh - ${props => props.gutter} - 6.125rem);
   max-width: 80%;
   opacity: ${props => props.opacity};
-  transition: transform .3s ease;
+  transition: transform .3s ease-out;
   will-change: transform, opacity;
   transform: ${props => props.transform};
   transform-origin: center bottom;
 
   @media (max-width: 1024px) {
-    max-height: calc(100vh - 2px);
+    max-height: 100vh;
   }
 `;
 
@@ -121,10 +121,10 @@ class Carousel extends Component {
     const active = this.state.active;
 
     if (i === active) {
-      return `translateX(calc(${-active * 100}% + 50vw - 50% - 1px))`;
+      return `translateX(calc(${-active * 100}% + 50vw - 50%))`;
     }
     return `translateX(calc(${-active * 100}% + ${i - active} *
-      ${this.props.gutter} + 50vw - 50% - 1px)) scaleY(0.833)`;
+      ${this.props.gutter} + 50vw - 50%)) scaleY(0.833)`;
   };
 
   setActive = (i: number) => {
