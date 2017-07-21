@@ -35,12 +35,6 @@ const Image = styled.div`
   flex-basis: 41.66666667%;
   height: 21.875rem;
   padding-right: 0.5rem;
-
-  &:hover {
-    transition: transform .3s ease;
-    will-change: transform;
-    transform: scale(1.02);
-  }
 `;
 
 const Description = styled.div`

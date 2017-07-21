@@ -35,9 +35,6 @@ const Contact = styled.button`
 
   &:hover {
     background-color: #404040;
-    transition: transform .3s ease;
-    will-change: transform;
-    transform: scale(1.05);
   }
 `;
 

@@ -21,10 +21,9 @@ const Image = styled.img`
   max-height: 25rem;
 
   &:hover {
-    transition: transform, opacity .3s ease;
-    will-change: transform, opacity;
+    transition: opacity .3s ease;
+    will-change: opacity;
     opacity: 0.9;
-    transform: scale(1.02);
   }
 `;
 
@@ -47,10 +46,9 @@ const Button = styled.button`
   }
 
   &:hover {
-    transition: transform, opacity .3s ease;
-    will-change: transform, opacity;
+    transition: opacity .3s ease;
+    will-change: opacity;
     opacity: 0.9;
-    transform: scale(1.1);
   }
 `;
 
