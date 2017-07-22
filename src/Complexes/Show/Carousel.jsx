@@ -74,6 +74,7 @@ const Close = styled.div`
   height: 1.125rem;
   padding: 1rem;
   cursor: pointer;
+  z-index: 10;
 
   &:hover {
     transition: transform .25s ease;
@@ -106,6 +107,15 @@ const Close = styled.div`
   }
 `;
 
+function getTransform(i: number, active: number, scaleRatio: string, gutter: string): string {
+  const activeShiftX: string = `50vw - 50% - ${active * 100}%`;
+
+  if (i === active) {
+    return `translateX(calc(${activeShiftX}))`;
+  }
+  return `translateX(calc(${activeShiftX} + ${i - active} * ${gutter})) scaleY(${1 / +scaleRatio})`;
+}
+
 class Carousel extends Component {
   state = { active: this.props.active };
 
@@ -116,16 +126,6 @@ class Carousel extends Component {
   componentWillUnmount() {
     document.removeEventListener('keydown', this.handleKeyDown);
   }
-
-  getTransform = (i: number) => {
-    const active = this.state.active;
-
-    if (i === active) {
-      return `translateX(calc(${-active * 100}% + 50vw - 50%))`;
-    }
-    return `translateX(calc(${-active * 100}% + ${i - active} *
-      ${this.props.gutter} + 50vw - 50%)) scaleY(0.833)`;
-  };
 
   setActive = (i: number) => {
     const imagesCount: number = this.props.images.length;
@@ -147,12 +147,13 @@ class Carousel extends Component {
   };
 
   render() {
+    const { active }: { active: number } = this.state;
     const {
       images,
       name,
       gutter = '5vw',
-    }: { images: ImagesType, name: string, gutter: string } = this.props;
-    const { active }: { active: number } = this.state;
+      scaleRatio = '1.2',
+    }: { images: ImagesType, name: string, gutter: string, scaleRatio: string } = this.props;
     const imagesCount: number = images.length;
 
     return (
@@ -165,9 +166,9 @@ class Carousel extends Component {
               src={getImageUrl(image.id, 1024)}
               alt={`Фотография ${i + 1}/${imagesCount} ЖК ${name}`}
               title={`Фотография ${i + 1}/${imagesCount} ЖК ${name}`}
-              transform={this.getTransform(i)}
-              opacity={i === active ? 1.0 : 0.5}
               gutter={gutter}
+              transform={getTransform(i, active, scaleRatio, gutter)}
+              opacity={i === active ? 1.0 : 0.5}
               onClick={this.handleClick(i)}
             />),
           )}

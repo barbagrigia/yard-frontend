@@ -127,6 +127,7 @@ class Gallery extends Component {
                 name={name}
                 active={this.state.selected}
                 gutter="5vw"
+                scaleRatio="1.2"
               />
             </Modal>
           </Row>
