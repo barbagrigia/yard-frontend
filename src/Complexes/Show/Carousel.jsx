@@ -36,7 +36,7 @@ const Image = styled.img`
   cursor: pointer;
   max-height: calc(100vh - ${props => props.gutter} - 0.8125 * ${props => props.gutter} - 2.875rem);
   max-width: 80%;
-  transition: transform .3s ease-out;
+  transition: transform .25s ease-out;
   will-change: transform, opacity;
   transform: ${props => props.transform};
   transform-origin: center bottom;
@@ -76,7 +76,7 @@ const Close = styled.div`
   cursor: pointer;
 
   &:hover {
-    transition: transform .3s ease;
+    transition: transform .25s ease;
     will-change: transform;
     transform: scale(1.2);
   }

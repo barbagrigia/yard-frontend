@@ -16,7 +16,7 @@ const Card = styled(Link)`
   overflow: hidden;
 
   &:hover {
-    transition: box-shadow .3s ease;
+    transition: box-shadow .25s ease;
     will-change: box-shadow;
     box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.3);
   }

@@ -21,7 +21,7 @@ const Image = styled.img`
   max-height: 25rem;
 
   &:hover {
-    transition: opacity .3s ease;
+    transition: opacity .25s ease;
     will-change: opacity;
     opacity: 0.9;
   }
@@ -46,7 +46,7 @@ const Button = styled.button`
   }
 
   &:hover {
-    transition: opacity .3s ease;
+    transition: opacity .25s ease;
     will-change: opacity;
     opacity: 0.9;
   }

@@ -1,6 +1,6 @@
 <h1 align="center" style="color:#fff;background-color:#3e4247;font-family:Monaco">YARD-FRONTEND</h1>
 <br />
-<div align="center"><strong>This project is for a 🔥 <a style="color:#fff;background-color:#f9b0c6;" href="http://kurskurskurs.erodionov.ru"><em>COURSE ON THE FRONTEND</em></a> by <a href="https://github.com/evgenyrodionov">Evgeny Rodionov</a></strong></div>
+<div align="center"><strong>This Real Estate web app is for a 🔥 <a style="color:#fff;background-color:#f9b0c6;" href="http://kurskurskurs.erodionov.ru"><em>COURSE ON THE FRONTEND</em></a> by <a href="https://github.com/evgenyrodionov">Evgeny Rodionov</a></strong></div>
 <br />
 <div align="center">
   <!-- Build Status -->
@@ -77,7 +77,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [react-modal](https://github.com/reactjs/react-modal)
 - [flow](https://flow.org) with [flow-typed](https://github.com/flowtype/flow-typed)
 - [eslint](http://eslint.org) with [aribnb config](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
-- [husky](https://github.com/typicode/husky)
+- [🐶 husky](https://github.com/typicode/husky)
 - [now](https://github.com/zeit/now-cli)
 
 ## MIT License
