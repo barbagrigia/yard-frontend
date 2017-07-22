@@ -119,15 +119,15 @@ class Gallery extends Component {
               isOpen={this.state.modalIsOpen}
               onRequestClose={this.closeModal}
               style={modalStyles}
-              contentLabel=""
+              contentLabel={''}
             >
               <Carousel
                 closeModal={this.closeModal}
                 images={images}
                 name={name}
                 active={this.state.selected}
-                gutter="5vw"
-                scaleRatio="1.2"
+                gutter={'5vw'}
+                scaleRatio={1.2}
               />
             </Modal>
           </Row>

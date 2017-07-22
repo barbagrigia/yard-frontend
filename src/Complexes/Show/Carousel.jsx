@@ -21,20 +21,23 @@ const Images = styled.div`
   align-items: flex-end;
   justify-content: flex-start;
   overflow: hidden;
-  position: relative;
   max-width: 100vw;
+  position: absolute;
+  top: 50%;
+  will-change: transform;
+  transform: translate(0, -50%);
 
-  @media (max-width: 1024px) {
-    position: absolute;
-    top: 50%;
-    will-change: transform;
-    transform: translate(0, -50%);
+  @media (min-width: 1024px) {
+    position: relative;
+    top: auto;
+    will-change: auto;
+    transform: none;
   }
 `;
 
 const Image = styled.img`
   cursor: pointer;
-  max-height: calc(100vh - ${props => props.gutter} - 0.8125 * ${props => props.gutter} - 2.875rem);
+  max-height: 100vh;
   max-width: 80%;
   transition: transform .25s ease-out;
   will-change: transform, opacity;
@@ -42,8 +45,10 @@ const Image = styled.img`
   transform-origin: center bottom;
   opacity: ${props => props.opacity};
 
-  @media (max-width: 1024px) {
-    max-height: 100vh;
+  @media (min-width: 1024px) {
+    max-height: calc(
+      100vh - ${props => props.gutter} - 0.8125 * ${props => props.gutter} - 2.875rem
+    );
   }
 `;
 
@@ -52,17 +57,25 @@ const Description = styled.div`
   display: inline-block;
   font-weight: 300;
   line-height: 1.375;
-  margin-top: 1.5rem;
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  padding: 0.125rem 0.25rem;
+  will-change: transform, text-shadow;
+  transform: translate(-50%, 0);
+  text-shadow: 1px 1px 2px rgba(17, 17, 17, 0.9);
+  background: rgba(17, 17, 17, 0.5);
 
-  @media (max-width: 1024px) {
-    position: absolute;
-    bottom: 1.5rem;
-    left: 50%;
-    padding: 0.125rem 0.25rem;
-    will-change: transform, text-shadow;
-    transform: translate(-50%, 0);
-    text-shadow: 1px 1px 2px rgba(17, 17, 17, 0.9);
-    background: rgba(17, 17, 17, 0.5);
+  @media (min-width: 1024px) {
+    margin-top: 1.5rem;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    padding: 0;
+    will-change: auto;
+    transform: none;
+    text-shadow: none;
+    background: none;
   }
 `;
 
@@ -107,13 +120,13 @@ const Close = styled.div`
   }
 `;
 
-function getTransform(i: number, active: number, scaleRatio: string, gutter: string): string {
+function getTransform(i: number, active: number, scaleRatio: number, gutter: string): string {
   const activeShiftX: string = `50vw - 50% - ${active * 100}%`;
 
   if (i === active) {
     return `translateX(calc(${activeShiftX}))`;
   }
-  return `translateX(calc(${activeShiftX} + ${i - active} * ${gutter})) scaleY(${1 / +scaleRatio})`;
+  return `translateX(calc(${activeShiftX} + ${i - active} * ${gutter})) scaleY(${1 / scaleRatio})`;
 }
 
 class Carousel extends Component {
@@ -152,8 +165,8 @@ class Carousel extends Component {
       images,
       name,
       gutter = '5vw',
-      scaleRatio = '1.2',
-    }: { images: ImagesType, name: string, gutter: string, scaleRatio: string } = this.props;
+      scaleRatio = 1.2,
+    }: { images: ImagesType, name: string, gutter: string, scaleRatio: number } = this.props;
     const imagesCount: number = images.length;
 
     return (
