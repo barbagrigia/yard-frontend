@@ -34,13 +34,13 @@ const Images = styled.div`
 
 const Image = styled.img`
   cursor: pointer;
-  max-height: calc(100vh - ${props => props.gutter} - 6.125rem);
+  max-height: calc(100vh - ${props => props.gutter} - 0.8125 * ${props => props.gutter} - 2.875rem);
   max-width: 80%;
-  opacity: ${props => props.opacity};
   transition: transform .3s ease-out;
   will-change: transform, opacity;
   transform: ${props => props.transform};
   transform-origin: center bottom;
+  opacity: ${props => props.opacity};
 
   @media (max-width: 1024px) {
     max-height: 100vh;
