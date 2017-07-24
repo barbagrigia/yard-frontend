@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import BodyClassName from 'react-body-classname';
 import { get } from './../../api';
 import Header from './Header';
-import Carousel from './Carousel';
+import Gallery from './Gallery';
 import Summary from './Summary';
 import Offers from './Offers';
 import Location from './Location';
@@ -52,7 +52,7 @@ class Complex extends Component {
         <BodyClassName className="complex">
           <main>
             <Header name={name} location={location} />
-            <Carousel images={images} imageAlt={`Фотография ЖК ${name}`} />
+            <Gallery images={images} name={name} />
             <Summary
               units={units}
               details={details}

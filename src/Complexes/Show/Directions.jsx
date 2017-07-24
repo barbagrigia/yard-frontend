@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   background-color: #fff;
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.5);
   margin-bottom: 4rem;
-  margin-top: -130px;
+  margin-top: -8.125rem;
 `;
 
 const Direction = styled.div`padding: 1.5rem 1.5rem 1.5625rem 1.5rem;`;
@@ -34,9 +34,9 @@ const Distance = styled.p`
 
 const style = {
   boxShadow: '0 0 30px 0 rgba(0, 0, 0, 0.5)',
-  height: '306px',
+  height: '19.125rem',
   marginBottom: '4rem',
-  marginTop: '-130px',
+  marginTop: '-8.125rem',
   width: '100%',
 };
 

@@ -3,11 +3,12 @@
 /* @flow */
 
 import React from 'react';
-import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
+import ReactMapboxGl, { Layer, Feature, ZoomControl } from 'react-mapbox-gl';
 import type { LocationType } from './../types';
 
 const MapBox = ReactMapboxGl({
   accessToken: process.env.REACT_APP_MAPBOX_TOKEN,
+  scrollZoom: false,
 });
 
 type Props = {
@@ -21,7 +22,7 @@ export default ({ location, style }: Props) => {
   return (
     <MapBox
       style="mapbox://styles/mapbox/light-v9"
-      zoom={[16]}
+      zoom={[11]}
       center={[longitude, latitude]}
       containerStyle={style}
     >
@@ -34,6 +35,7 @@ export default ({ location, style }: Props) => {
       >
         <Feature coordinates={[longitude, latitude]} />
       </Layer>
+      <ZoomControl />
     </MapBox>
   );
 };
