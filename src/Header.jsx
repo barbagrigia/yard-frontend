@@ -9,8 +9,8 @@ import logo from './img/compass-logo.svg';
 import { media } from './utils';
 
 const Header = styled.header`
-  background-color: #fff;
-  border-bottom: 1px solid #eaebf0;
+  background-color: ${props => props.theme.white};
+  border-bottom: 1px solid ${props => props.theme.paleGrey};
 `;
 
 const Wrapper = styled.div`

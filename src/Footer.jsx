@@ -9,7 +9,7 @@ import arrowImg from './img/arrow.svg';
 import { media } from './utils';
 
 const Footer = styled.footer`
-  background-color: #111111;
+  background-color: ${props => props.theme.blackThree};
   padding-top: 2rem;
   padding-bottom: 3rem;
 
@@ -19,7 +19,7 @@ const Footer = styled.footer`
 `;
 
 const Line = styled.hr`
-  background-color: #3e4247;
+  background-color: ${props => props.theme.charcoalGrey};
   border: none;
   height: 2px;
   margin-top: 2rem;
@@ -31,14 +31,14 @@ const Line = styled.hr`
 `;
 
 const Title = styled.h4`
-  color: #646971;
+  color: ${props => props.theme.slateGrey};
   font-size: 0.875rem;
   line-height: 1.572;
   margin: 0;
 `;
 
 const Credentials = styled.p`
-  color: #a9afb6;
+  color: ${props => props.theme.hueGrey};
   display: block;
   font-size: 0.875rem;
   font-weight: 300;
@@ -56,7 +56,7 @@ const Credentials = styled.p`
 `;
 
 const Link = styled(RouterLink)`
-  color: #a9afb6;
+  color: ${props => props.theme.hueGrey};
   display: block;
   font-size: 0.875rem;
   font-weight: 300;
@@ -82,7 +82,7 @@ const ArrowedLink = Link.extend`
 const Disclaimer = styled.p`
   font-size: 0.6875rem;
   font-weight: 300;
-  color: #a9afb6;
+  color: ${props => props.theme.hueGrey};
   line-height: 1.6364;
   margin: 0;
   padding-top: 3rem;

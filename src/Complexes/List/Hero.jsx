@@ -8,7 +8,7 @@ import developmentImg from '../../img/compass-development-logo.svg';
 import { media } from '../../utils';
 
 const Wrapper = styled.div`
-  background-color: #161616;
+  background-color: ${props => props.theme.black};
   display: none;
   overflow: hidden;
   padding-bottom: 5rem;

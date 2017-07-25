@@ -8,8 +8,8 @@ import { getImageUrl, media } from '../../utils';
 import type { LocationType } from './../types';
 
 const Card = styled(Link)`
-  background-color: #fff;
-  border-bottom: solid 0.125rem #646971;
+  background-color: ${props => props.theme.white};
+  border-bottom: solid 0.125rem ${props => props.theme.slateGrey};
   display: flex;
   flex-direction: column;
   margin-bottom: 2rem;
@@ -64,15 +64,15 @@ const Description = styled.div`
 `;
 
 const Location = styled.p`
-  color: #646971;
-  font-family: "Monaco", "Consolas", "Lucida Console", monospace;
+  color: ${props => props.theme.slateGrey};
+  font-family: ${props => props.theme.monaco};
   line-height: 1.25;
   margin: 0;
   text-transform: uppercase;
 `;
 
 const Name = styled.h3`
-  color: #000;
+  color: ${props => props.theme.blackTwo};
   font-size: 2rem;
   line-height: 1.25;
   margin: 1.5rem 0 0;
@@ -84,7 +84,7 @@ const Name = styled.h3`
 `;
 
 const Info = styled.p`
-  color: #3e4247;
+  color: ${props => props.theme.charcoalGrey};
   line-height: 1.5;
   margin: 1rem 0 0;
 

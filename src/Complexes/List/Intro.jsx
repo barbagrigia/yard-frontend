@@ -18,7 +18,7 @@ const Intro = styled.section`
 `;
 
 const Title = styled.h2`
-  color: #3e4247;
+  color: ${props => props.theme.charcoalGrey};
   font-size: 1.25rem;
   line-height: 1.55;
   margin: 0;
@@ -30,7 +30,7 @@ const Title = styled.h2`
 `;
 
 const Info = styled.p`
-  color: #3e4247;
+  color: ${props => props.theme.charcoalGrey};
   line-height: 1.5;
   margin-top: 1rem;
 
@@ -40,10 +40,10 @@ const Info = styled.p`
 `;
 
 const Contact = styled.button`
-  background-color: #000;
+  background-color: ${props => props.theme.blackTwo};
   border-radius: 0.125rem;
   border: none;
-  color: #fff;
+  color: ${props => props.theme.white};
   cursor: pointer;
   font-family: "Fira Sans", "Helvetica", sans-serif;
   line-height: 1.0;
@@ -51,7 +51,7 @@ const Contact = styled.button`
   outline: none;
 
   &:hover {
-    background-color: #404040;
+    opacity: 0.8;
   }
 `;
 
