@@ -3,17 +3,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import type { Children } from 'react';
-import { getImageUrl } from './../../utils';
+
+import { getImageUrl, media } from '../../utils';
 import type { LocationType } from './../types';
 
 const Card = styled(Link)`
   background-color: #fff;
   border-bottom: solid 0.125rem #646971;
   display: flex;
-  margin-bottom: 3rem;
+  flex-direction: column;
+  margin-bottom: 2rem;
   text-decoration: none;
   overflow: hidden;
+
+  ${media.tablet`
+    flex-direction: row;
+    margin-bottom: 3rem;
+  `};
 
   &:hover {
     transition: box-shadow .25s ease;
@@ -22,27 +28,39 @@ const Card = styled(Link)`
   }
 
   &:last-child {
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
+
+    ${media.tablet`
+      margin-bottom: 6rem;
+    `};
   }
 `;
 
-const Image = styled.div`
-  background-clip: content-box;
-  background-position: center center;
-  background-size: cover;
-  box-sizing: border-box;
-  display: flex;
-  flex-basis: 41.66666667%;
-  height: 21.875rem;
-  padding-right: 0.5rem;
+const Image = styled.img`
+  flex-shrink: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+
+  ${media.tablet`
+    width: 41%;
+    max-height: 21.875rem;
+  `};
 `;
 
 const Description = styled.div`
   box-sizing: border-box;
   display: flex;
-  flex-basis: 58.33333333%;
   flex-flow: column;
-  padding: 1.5rem 6.25rem 1.5rem 0.5rem;
+  padding: 1rem 1rem 1.625rem 1rem;
+
+  ${media.tablet`
+    padding: 1.5rem 3rem 1.5rem 1rem;
+  `};
+
+  ${media.giant`
+    padding-right: 6.25rem;
+  `};
 `;
 
 const Location = styled.p`
@@ -55,32 +73,37 @@ const Location = styled.p`
 
 const Name = styled.h3`
   color: #000;
-  font-size: 2.5rem;
-  line-height: 1.4;
-  margin: 1.5rem 0 0 0;
+  font-size: 2rem;
+  line-height: 1.25;
+  margin: 1.5rem 0 0;
+
+  ${media.tablet`
+    font-size: 2.5rem;
+    line-height: 1.4;
+  `};
 `;
 
 const Info = styled.p`
   color: #3e4247;
   line-height: 1.5;
-  margin: 0.5rem 0 0 0;
+  margin: 1rem 0 0;
+
+  ${media.tablet`
+    margin-top: 0.5rem 0 0;
+  `};
 `;
 
 type Props = {
-  id: number,
+  slug: string,
   img: string,
   location: LocationType,
   name: string,
-  children: Children,
+  children: typeof React.Element,
 };
 
-export default ({ id, img, location, name, children }: Props) =>
-  (<Card to={`/complexes/${id}`}>
-    <Image
-      style={{
-        backgroundImage: `url(${getImageUrl(img)})`,
-      }}
-    />
+export default ({ slug, img, location, name, children }: Props) =>
+  (<Card to={`/complexes/${slug}`}>
+    <Image src={getImageUrl(img)} alt={name} title={name} />
     <Description>
       <Location>
         {location.subLocalityName && `${location.subLocalityName}, `}

@@ -2,32 +2,31 @@
 
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-import BodyClassName from 'react-body-classname';
-import { get } from './../../api';
+
+import { get } from '../../api';
 import Header from './Header';
 import Gallery from './Gallery';
 import Summary from './Summary';
 import Offers from './Offers';
 import Location from './Location';
 import Directions from './Directions';
-import type { ComplexType } from './../types';
+import type { ComplexType } from '../types';
 
-class Complex extends Component {
+export default class Complex extends Component {
   state = {};
-  state: ComplexType;
 
   componentDidMount() {
-    this.load(this.props.match.params.id);
+    this.load(this.props.match.params.slug);
   }
 
   componentWillReceiveProps(nextProps: Object) {
-    if (nextProps.match.params.id !== this.props.match.params.id) {
-      this.load(nextProps.match.params.id);
+    if (nextProps.match.params.slug !== this.props.match.params.slug) {
+      this.load(nextProps.match.params.slug);
     }
   }
 
-  load(id: number) {
-    get(`/complexes/${id}`).then(complex => this.setState(complex));
+  load(slug: number) {
+    get(`/complexes/${slug}`).then((complex: ComplexType) => this.setState(complex));
   }
 
   render() {
@@ -43,31 +42,32 @@ class Complex extends Component {
     } = this.state;
 
     return (
-      <div>
-        <Helmet>
-          <title>
-            {`${name}`} | Compass Development
-          </title>
-        </Helmet>
-        <BodyClassName className="complex">
-          <main>
-            <Header name={name} location={location} />
-            <Gallery images={images} name={name} />
-            <Summary
-              units={units}
-              details={details}
-              statistics={statistics}
-              fullDescription={fullDescription}
-              amenities={amenities}
-            />
-            <Offers name={name} />
-            <Location />
-            <Directions location={location} />
-          </main>
-        </BodyClassName>
-      </div>
+      <main>
+        <Helmet
+          style={[
+            {
+              cssText: `
+                body {
+                  background: #fff;
+                }
+              `,
+            },
+          ]}
+          title={`${name} | Compass Development`}
+        />
+        <Header name={name} location={location} />
+        <Gallery images={images} name={name} />
+        <Summary
+          units={units}
+          details={details}
+          statistics={statistics}
+          fullDescription={fullDescription}
+          amenities={amenities}
+        />
+        <Offers name={name} />
+        <Location />
+        <Directions location={location} />
+      </main>
     );
   }
 }
-
-export default Complex;

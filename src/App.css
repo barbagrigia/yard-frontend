@@ -8,18 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.complexes {
-  background: url("./img/background.png");
-  background-size: 2%;
-  background-color: #eaebf0;
-  background-repeat: repeat;
-}
-
-.complex {
-  background: #fff;
-}
-
 /* Remove scroll on the body when react-modal is open */
 .ReactModal__Body--open {
-    overflow: hidden;
+  overflow: hidden;
 }

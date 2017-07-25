@@ -2,57 +2,63 @@
 
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-import BodyClassName from 'react-body-classname';
 import { Grid } from 'react-flexbox-grid';
+
+import background from '../../img/background.png';
 import { get } from '../../api';
-import Development from './Development';
+import Hero from './Hero';
 import Intro from './Intro';
 import Card from './Card';
-import type { ComplexType } from './../types';
+import type { ComplexType } from '../types';
 
-class Complexes extends Component {
-  state: {
-    complexes: Array<ComplexType>,
-  } = {
+type State = { complexes: Array<ComplexType> };
+
+export default class Complexes extends Component<void, void, State> {
+  state = {
     complexes: [],
   };
 
   componentDidMount() {
-    get('/complexes?filter[state]=public').then(({ items: complexes }) =>
-      this.setState({ complexes }),
-    );
+    get(
+      '/complexes?filter[state]=public',
+    ).then(({ items: complexes }: { items: Array<ComplexType> }) => this.setState({ complexes }));
   }
 
   render() {
     const { complexes = [] } = this.state;
 
     return (
-      <div>
-        <Helmet>
-          <title>Complexes | Compass Development</title>
-        </Helmet>
-        <BodyClassName className="complexes">
-          <main>
-            <Development />
-            <Intro />
-            <Grid>
-              {complexes.map(complex =>
-                (<Card
-                  key={complex.id}
-                  id={complex.id}
-                  location={complex.location}
-                  name={complex.name}
-                  img={complex.images[0].id}
-                >
-                  {complex.shortDescription}
-                </Card>),
-              )}
-            </Grid>
-          </main>
-        </BodyClassName>
-      </div>
+      <main>
+        <Helmet
+          style={[
+            {
+              cssText: `
+                body {
+                  background: url(${background});
+                  background-size: 2%; background-color: #eaebf0;
+                  background-repeat: repeat;
+                }
+              `,
+            },
+          ]}
+          title="Complexes | Compass Development"
+        />
+        <Hero />
+        <Intro />
+        <Grid fluid>
+          {complexes.map(complex =>
+            (<Card
+              key={complex.id}
+              slug={complex.slug}
+              location={complex.location}
+              name={complex.name}
+              img={complex.images[0].id}
+            >
+              {complex.shortDescription}
+            </Card>),
+          )}
+        </Grid>
+      </main>
     );
   }
 }
-
-export default Complexes;
