@@ -96,7 +96,12 @@ type Props = {
 
 export default ({ slug, img, location, name, children }: Props) =>
   (<Card to={`/complexes/${slug}`}>
-    <Image src={getImageUrl(img)} alt={name} title={name} />
+    <Image
+      src={getImageUrl(img)}
+      srcSet={`${getImageUrl(img, 1024)} 2x, ${getImageUrl(img, 2048)} 3x`}
+      alt={name}
+      title={name}
+    />
     <Description>
       <Location>
         {location.subLocalityName && `${location.subLocalityName}, `}
