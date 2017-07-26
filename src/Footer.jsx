@@ -3,6 +3,7 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Link as RouterLink } from 'react-router-dom';
+import MediaQuery from 'react-responsive';
 import styled from 'styled-components';
 
 import arrowImg from './img/arrow.svg';
@@ -90,37 +91,74 @@ const Disclaimer = styled.p`
 
 export default () =>
   (<Footer>
-    <Grid fluid>
-      <Row>
-        <Col xs={12} sm={3} md={2}>
-          <Title>ООО «Ярд»</Title>
-          <Credentials>ОГРН 1175074002531</Credentials>
-          <Credentials>ИНН 5036165365</Credentials>
-          <Credentials>+7 (999) 821-14-88</Credentials>
-        </Col>
-        <Col xs={12} smOffset={3} sm={3} mdOffset={2} md={2}>
-          <Line />
-          <Title>Жилые комплексы</Title>
-          <Link to="#">ВТБ Арена Парк</Link>
-          <Link to="#">Садовые кварталы</Link>
-          <Link to="#">Резиденция Монэ</Link>
-          <ArrowedLink to="#">Все ЖК Москвы</ArrowedLink>
-        </Col>
-        <Col xs={12} sm={3} md={2}>
-          <Line />
-          <Title>Компания</Title>
-          <Link to="#">Команда</Link>
-          <Link to="#">О компании</Link>
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={12} smOffset={6} sm={6} mdOffset={4} md={8}>
-          <Disclaimer>
-            Любая информация, представленная на данном сайте, носит исключительно информационный
-            характер и ни при каких условиях не является публичной офертой, определяемой положениями
-            статьи 437 ГК РФ. © ООО «Ярд», 2017
-          </Disclaimer>
-        </Col>
-      </Row>
-    </Grid>
+    <MediaQuery maxWidth={1199}>
+      <Grid fluid>
+        <Row>
+          <Col xs={12} sm={3} md={2}>
+            <Title>ООО «Ярд»</Title>
+            <Credentials>ОГРН 1175074002531</Credentials>
+            <Credentials>ИНН 5036165365</Credentials>
+            <Credentials>+7 (999) 821-14-88</Credentials>
+          </Col>
+          <Col xs={12} smOffset={3} sm={3} mdOffset={2} md={2}>
+            <Line />
+            <Title>Жилые комплексы</Title>
+            <Link to="#">ВТБ Арена Парк</Link>
+            <Link to="#">Садовые кварталы</Link>
+            <Link to="#">Резиденция Монэ</Link>
+            <ArrowedLink to="#">Все ЖК Москвы</ArrowedLink>
+          </Col>
+          <Col xs={12} sm={3} md={2}>
+            <Line />
+            <Title>Компания</Title>
+            <Link to="#">Команда</Link>
+            <Link to="#">О компании</Link>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} smOffset={6} sm={6} mdOffset={4} md={8}>
+            <Disclaimer>
+              Любая информация, представленная на данном сайте, носит исключительно информационный
+              характер и ни при каких условиях не является публичной офертой, определяемой
+              положениями статьи 437 ГК РФ. © ООО «Ярд», 2017
+            </Disclaimer>
+          </Col>
+        </Row>
+      </Grid>
+    </MediaQuery>
+    <MediaQuery minWidth={1200}>
+      <Grid>
+        <Row>
+          <Col xs={12} sm={3} md={2}>
+            <Title>ООО «Ярд»</Title>
+            <Credentials>ОГРН 1175074002531</Credentials>
+            <Credentials>ИНН 5036165365</Credentials>
+            <Credentials>+7 (999) 821-14-88</Credentials>
+          </Col>
+          <Col xs={12} smOffset={3} sm={3} mdOffset={2} md={2}>
+            <Line />
+            <Title>Жилые комплексы</Title>
+            <Link to="#">ВТБ Арена Парк</Link>
+            <Link to="#">Садовые кварталы</Link>
+            <Link to="#">Резиденция Монэ</Link>
+            <ArrowedLink to="#">Все ЖК Москвы</ArrowedLink>
+          </Col>
+          <Col xs={12} sm={3} md={2}>
+            <Line />
+            <Title>Компания</Title>
+            <Link to="#">Команда</Link>
+            <Link to="#">О компании</Link>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} smOffset={6} sm={6} mdOffset={4} md={8}>
+            <Disclaimer>
+              Любая информация, представленная на данном сайте, носит исключительно информационный
+              характер и ни при каких условиях не является публичной офертой, определяемой
+              положениями статьи 437 ГК РФ. © ООО «Ярд», 2017
+            </Disclaimer>
+          </Col>
+        </Row>
+      </Grid>
+    </MediaQuery>
   </Footer>);

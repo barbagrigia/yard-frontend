@@ -3,6 +3,7 @@
 import React from 'react';
 import { Grid } from 'react-flexbox-grid';
 import { Link } from 'react-router-dom';
+import MediaQuery from 'react-responsive';
 import styled from 'styled-components';
 
 import logo from './img/compass-logo.svg';
@@ -49,27 +50,43 @@ const NavLink = styled(Link)`
   line-height: 1;
   text-decoration: none;
 
-  &:hover {
-    opacity: 0.8;
-  }
-
   &:not(:last-child) {
     margin-right: 2rem;
+  }
+
+  &:hover {
+    opacity: 0.8;
   }
 `;
 
 export default () =>
   (<Header>
-    <Grid fluid>
-      <Wrapper>
-        <LogoLink to="/">
-          <Logo src={logo} alt="Compass Logo" />
-        </LogoLink>
-        <Nav>
-          <NavLink to="#">Купить</NavLink>
-          <NavLink to="#">Снять</NavLink>
-          <NavLink to="#">Наши агенты</NavLink>
-        </Nav>
-      </Wrapper>
-    </Grid>
+    <MediaQuery maxWidth={1199}>
+      <Grid fluid>
+        <Wrapper>
+          <LogoLink to="/">
+            <Logo src={logo} alt="Compass Logo" />
+          </LogoLink>
+          <Nav>
+            <NavLink to="#">Купить</NavLink>
+            <NavLink to="#">Снять</NavLink>
+            <NavLink to="#">Наши агенты</NavLink>
+          </Nav>
+        </Wrapper>
+      </Grid>
+    </MediaQuery>
+    <MediaQuery minWidth={1200}>
+      <Grid>
+        <Wrapper>
+          <LogoLink to="/">
+            <Logo src={logo} alt="Compass Logo" />
+          </LogoLink>
+          <Nav>
+            <NavLink to="#">Купить</NavLink>
+            <NavLink to="#">Снять</NavLink>
+            <NavLink to="#">Наши агенты</NavLink>
+          </Nav>
+        </Wrapper>
+      </Grid>
+    </MediaQuery>
   </Header>);

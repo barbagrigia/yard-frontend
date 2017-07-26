@@ -12,3 +12,10 @@ body {
 .ReactModal__Body--open {
   overflow: hidden;
 }
+
+@media only screen and (max-width: 48rem) {
+  .container-fluid {
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
+  }
+}

@@ -15,12 +15,10 @@ const Card = styled(Link)`
   margin-bottom: 2rem;
   text-decoration: none;
   overflow: hidden;
-
-  &:hover {
-    transition: box-shadow 0.25s ease;
-    will-change: box-shadow;
-    box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.3);
-  }
+  ${media.tablet`
+    flex-direction: row;
+    margin-bottom: 3rem;
+  `};
 
   &:last-child {
     margin-bottom: 4rem;
@@ -29,10 +27,11 @@ const Card = styled(Link)`
     `};
   }
 
-  ${media.tablet`
-    flex-direction: row;
-    margin-bottom: 3rem;
-`};
+  &:hover {
+    transition: box-shadow 0.25s ease;
+    will-change: box-shadow;
+    box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.3);
+  }
 `;
 
 const Image = styled.img`
