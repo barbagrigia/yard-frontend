@@ -14,7 +14,6 @@ const Wrapper = styled.div`
   padding-bottom: 5rem;
   padding-top: 5rem;
   text-align: center;
-
   ${media.tablet`
     display: block;
   `};

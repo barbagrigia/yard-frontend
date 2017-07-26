@@ -12,7 +12,6 @@ const Footer = styled.footer`
   background-color: ${props => props.theme.blackThree};
   padding-top: 2rem;
   padding-bottom: 3rem;
-
   ${media.tablet`
     padding-bottom: 1.75rem;
   `};
@@ -24,7 +23,6 @@ const Line = styled.hr`
   height: 2px;
   margin-top: 2rem;
   margin-bottom: 1rem;
-
   ${media.tablet`
     margin-top: 0;
   `};
@@ -48,7 +46,6 @@ const Credentials = styled.p`
 
   &:last-child {
     margin-top: 1rem;
-
     ${media.tablet`
       margin-bottom: 0;
     `};
@@ -86,7 +83,6 @@ const Disclaimer = styled.p`
   line-height: 1.6364;
   margin: 0;
   padding-top: 3rem;
-
   ${media.tablet`
     padding-top: 6rem;
   `};

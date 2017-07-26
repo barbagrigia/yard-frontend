@@ -23,7 +23,6 @@ const LogoLink = styled(Link)`
   display: flex;
   margin-top: 1rem;
   margin-bottom: 1.125rem;
-
   ${media.tablet`
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;
@@ -32,7 +31,6 @@ const LogoLink = styled(Link)`
 
 const Logo = styled.img`
   height: 1rem;
-
   ${media.tablet`
     height: 1.5rem;
   `};
@@ -41,7 +39,6 @@ const Logo = styled.img`
 const Nav = styled.nav`
   display: none;
   text-align: right;
-
   ${media.tablet`
     display: flex;
   `};
@@ -49,7 +46,7 @@ const Nav = styled.nav`
 
 const NavLink = styled(Link)`
   color: #3e4247;
-  line-height: 1.0;
+  line-height: 1;
   text-decoration: none;
 
   &:hover {

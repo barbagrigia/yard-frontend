@@ -16,24 +16,23 @@ const Card = styled(Link)`
   text-decoration: none;
   overflow: hidden;
 
-  ${media.tablet`
-    flex-direction: row;
-    margin-bottom: 3rem;
-  `};
-
   &:hover {
-    transition: box-shadow .25s ease;
+    transition: box-shadow 0.25s ease;
     will-change: box-shadow;
     box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.3);
   }
 
   &:last-child {
     margin-bottom: 4rem;
-
     ${media.tablet`
       margin-bottom: 6rem;
     `};
   }
+
+  ${media.tablet`
+    flex-direction: row;
+    margin-bottom: 3rem;
+`};
 `;
 
 const Image = styled.img`
@@ -41,7 +40,6 @@ const Image = styled.img`
   width: 100%;
   height: auto;
   object-fit: cover;
-
   ${media.tablet`
     width: 41%;
     max-height: 21.875rem;
@@ -52,12 +50,10 @@ const Description = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-flow: column;
-  padding: 1rem 1rem 1.625rem 1rem;
-
+  padding: 1rem 1rem 1.625rem;
   ${media.tablet`
     padding: 1.5rem 3rem 1.5rem 1rem;
   `};
-
   ${media.giant`
     padding-right: 6.25rem;
   `};
@@ -76,7 +72,6 @@ const Name = styled.h3`
   font-size: 2rem;
   line-height: 1.25;
   margin: 1.5rem 0 0;
-
   ${media.tablet`
     font-size: 2.5rem;
     line-height: 1.4;
@@ -87,7 +82,6 @@ const Info = styled.p`
   color: ${props => props.theme.charcoalGrey};
   line-height: 1.5;
   margin: 1rem 0 0;
-
   ${media.tablet`
     margin-top: 0.5rem 0 0;
   `};

@@ -10,7 +10,6 @@ const Intro = styled.section`
   margin-top: 2rem;
   margin-bottom: 2rem;
   text-align: center;
-
   ${media.tablet`
     margin-top: 4rem;
     margin-bottom: 4rem;
@@ -22,7 +21,6 @@ const Title = styled.h2`
   font-size: 1.25rem;
   line-height: 1.55;
   margin: 0;
-
   ${media.tablet`
     font-size: 1.5rem;
     line-height: 1.5;
@@ -33,7 +31,6 @@ const Info = styled.p`
   color: ${props => props.theme.charcoalGrey};
   line-height: 1.5;
   margin-top: 1rem;
-
   ${media.tablet`
     margin-top: 0.5rem;
   `};
@@ -45,8 +42,8 @@ const Contact = styled.button`
   border: none;
   color: ${props => props.theme.white};
   cursor: pointer;
-  font-family: "Fira Sans", "Helvetica", sans-serif;
-  line-height: 1.0;
+  font-family: ${props => props.theme.fira};
+  line-height: 1;
   padding: 0.75rem 2rem;
   outline: none;
 
