@@ -8,31 +8,34 @@
     "url": "barbagrigia/yard-frontend"
   },
   "dependencies": {
-    "mapbox-gl": "^0.38.0",
+    "mapbox-gl": "^0.39.1",
     "normalize.css": "^7.0.0",
     "react": "^15.6.1",
-    "react-body-classname": "^1.1.1",
     "react-dom": "^15.6.1",
     "react-flexbox-grid": "^1.1.3",
     "react-helmet": "^5.1.3",
     "react-mapbox-gl": "^2.1.0",
-    "react-modal": "^2.2.1",
-    "react-router-dom": "^4.1.1",
-    "styled-components": "^2.1.0"
+    "react-modal": "^2.2.2",
+    "react-responsive": "^1.3.4",
+    "react-router-dom": "^4.1.2",
+    "styled-components": "^2.1.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "eslint": "^3.19.0",
-    "eslint-config-airbnb": "^15.0.1",
-    "eslint-plugin-flowtype": "^2.34.1",
-    "eslint-plugin-import": "^2.3.0",
-    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-flowtype": "^2.35.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
-    "flow-bin": "^0.49.1",
-    "flow-typed": "^2.1.2",
-    "husky": "^0.14.1",
-    "now": "^7.1.1",
-    "react-scripts": "1.0.7"
+    "flow-bin": "^0.51.0",
+    "flow-typed": "^2.1.5",
+    "husky": "^0.14.3",
+    "now": "^7.2.4",
+    "react-scripts": "1.0.10",
+    "stylelint": "^8.0.0",
+    "stylelint-config-standard": "^17.0.0",
+    "stylelint-processor-styled-components": "^0.2.1"
   },
   "now": {
     "alias": "yard"
@@ -43,6 +46,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint --ext=js,jsx src",
+    "lint:css": "stylelint './src/**/*.jsx'",
     "flow": "flow",
     "flow-typed": "flow-typed",
     "precommit": "yarn lint && yarn flow",

@@ -125,4 +125,5 @@ export type ComplexType = {
   createdAt: string,
   images: ImagesType,
   accreditors: Array<number>,
+  slug: string,
 };

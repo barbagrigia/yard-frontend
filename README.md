@@ -71,7 +71,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [normalize.css](https://github.com/necolas/normalize.css)
 - [react-flexbox-grid](https://github.com/roylee0704/react-flexbox-grid)
 - [react-router](https://github.com/ReactTraining/react-router)
-- [react-body-classname](https://github.com/iest/react-body-classname)
 - [react-helmet](https://github.com/nfl/react-helmet)
 - [react-mapbox-gl](https://github.com/alex3165/react-mapbox-gl) with [mapbox-gl](https://github.com/mapbox/mapbox-gl-js)
 - [react-modal](https://github.com/reactjs/react-modal)
