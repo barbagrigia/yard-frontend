@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { getImageUrl, media } from '../../utils';
-import type { LocationType } from './../types';
+import type { LocationType } from '../types';
 
 const Card = styled(Link)`
   background-color: ${props => props.theme.white};

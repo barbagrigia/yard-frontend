@@ -16,7 +16,6 @@
     "react-helmet": "^5.1.3",
     "react-mapbox-gl": "^2.1.0",
     "react-modal": "^2.2.2",
-    "react-responsive": "^1.3.4",
     "react-router-dom": "^4.1.2",
     "styled-components": "^2.1.1"
   },
@@ -46,7 +45,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint --ext=js,jsx src",
-    "lint:css": "stylelint './src/**/*.jsx'",
+    "lint:css": "stylelint 'src/**/*.jsx' '*.css'",
     "flow": "flow",
     "flow-typed": "flow-typed",
     "precommit": "yarn lint && yarn flow",

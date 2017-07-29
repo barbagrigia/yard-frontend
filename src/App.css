@@ -13,9 +13,14 @@ body {
   overflow: hidden;
 }
 
+.container-fluid {
+  max-width: 76rem;
+}
+
 @media only screen and (max-width: 48rem) {
   .container-fluid {
     padding-right: 1rem !important;
     padding-left: 1rem !important;
+    max-width: 76rem;
   }
 }

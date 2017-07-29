@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import MediaQuery from 'react-responsive';
 import styled from 'styled-components';
 
 import { media } from '../../utils';
@@ -55,34 +54,17 @@ const Contact = styled.button`
 
 export default () =>
   (<Intro>
-    <MediaQuery maxWidth={1199}>
-      <Grid fluid>
-        <Row>
-          <Col xs={12} smOffset={1} sm={10} mdOffset={2} md={8}>
-            <Title>Discover Our New Developments</Title>
-            <Info>
-              Compass brings a modern approach to new development marketing and sales. From boutique
-              rental conversions to luxurious ground-up condominiums, browse our portfolio of
-              current offerings.
-            </Info>
-            <Contact type="submit">Contact The Team</Contact>
-          </Col>
-        </Row>
-      </Grid>
-    </MediaQuery>
-    <MediaQuery minWidth={1200}>
-      <Grid>
-        <Row>
-          <Col xs={12} smOffset={1} sm={10} mdOffset={2} md={8}>
-            <Title>Discover Our New Developments</Title>
-            <Info>
-              Compass brings a modern approach to new development marketing and sales. From boutique
-              rental conversions to luxurious ground-up condominiums, browse our portfolio of
-              current offerings.
-            </Info>
-            <Contact type="submit">Contact The Team</Contact>
-          </Col>
-        </Row>
-      </Grid>
-    </MediaQuery>
+    <Grid fluid>
+      <Row>
+        <Col xs={12} smOffset={1} sm={10} mdOffset={2} md={8}>
+          <Title>Discover Our New Developments</Title>
+          <Info>
+            Compass brings a modern approach to new development marketing and sales. From boutique
+            rental conversions to luxurious ground-up condominiums, browse our portfolio of current
+            offerings.
+          </Info>
+          <Contact type="submit">Contact The Team</Contact>
+        </Col>
+      </Row>
+    </Grid>
   </Intro>);
