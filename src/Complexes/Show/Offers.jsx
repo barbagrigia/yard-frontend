@@ -2,39 +2,76 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { Grid, Row, Col } from 'react-flexbox-grid';
+import { Grid } from 'react-flexbox-grid';
+
 import Title from './Title';
+import { media } from '../../utils';
 
 const Offers = styled.section`
-  padding-bottom: 4rem;
-  padding-top: 4rem;
-  background-color: #f4f5f9;
+  background-color: ${props => props.theme.otherGrey};
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  ${media.tablet`
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  `};
+`;
+
+const OffersTitle = styled(Title)`
+  text-align: left;
+  ${media.tablet`
+    text-align: center;
+  `};
+`;
+
+const Row = styled.div`
+  display: flex;
+  overflow-x: auto;
+  ${media.desktop`
+    overflow-x: hidden;
+  `};
 `;
 
 const Offer = styled.div`
-  background-color: #fff;
+  background-color: ${props => props.theme.white};
+  flex: 1 0 17rem;
   margin-top: 1.5rem;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem;
+  ${media.desktop`
+    flex: 1 0 0;
+    padding: 1.5rem 2rem;
+  `};
+
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
 `;
 
 const OfferTitle = styled.h3`
-  color: #3e4247;
-  font-family: "Philosopher";
+  color: ${props => props.theme.charcoalGrey};
+  font-family: ${props => props.theme.philosopher};
   font-size: 1.25rem;
-  line-height: 1.125;
+  line-height: 1.1;
   margin: 0 0 1.5rem;
+  ${media.tablet`
+    line-height: 1.125;
+ `};
 `;
 
-const Feature = styled.div`margin-bottom: 1.5rem;`;
+const Feature = styled.div`
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+`;
 
 const FeatureTitle = styled.div`
-  color: #a9afb6;
+  color: ${props => props.theme.hueGrey};
   line-height: 1.375;
   margin-bottom: 0.625rem;
 `;
 
 const Text = styled.div`
-  color: #3e4247;
+  color: ${props => props.theme.charcoalGrey};
   line-height: 1.375;
 `;
 
@@ -44,15 +81,28 @@ const Wrapper = styled.div`
 `;
 
 const Button = styled.button`
-  background-color: #000;
-  color: #fff;
+  background-color: ${props => props.theme.blackTwo};
+  color: ${props => props.theme.white};
   cursor: pointer;
-  font-family: "Fira Sans", "Helvetica", sans-serif;
+  font-family: ${props => props.theme.fira};
   font-weight: 400;
-  line-height: 1.0;
+  line-height: 1;
   border: none;
   border-radius: 2px;
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 1.35rem;
+  ${media.desktop`
+    padding: 0.75rem 2rem;
+ `};
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    transition: opacity 0.25s ease;
+    will-change: opacity;
+    opacity: 0.9;
+  }
 `;
 
 type Props = {
@@ -61,61 +111,53 @@ type Props = {
 
 export default ({ name }: Props) =>
   (<Offers>
-    <Grid>
-      <Row center="lg">
-        <Title>
-          Предложения в ЖК «{name}»
-        </Title>
-      </Row>
+    <Grid fluid>
+      <OffersTitle>
+        Предложения в ЖК «{name}»
+      </OffersTitle>
       <Row>
-        <Col lg={4}>
-          <Offer>
-            <OfferTitle>1-комнатные квартиры</OfferTitle>
-            <Feature>
-              <FeatureTitle>Площадь</FeatureTitle>
-              <Text>от 59 до 120 м²</Text>
-            </Feature>
-            <Feature>
-              <FeatureTitle>Стоимость</FeatureTitle>
-              <Text>от 20.3 до 84.2 млн руб</Text>
-            </Feature>
-            <Wrapper>
-              <Button>Посмотреть предложения</Button>
-            </Wrapper>
-          </Offer>
-        </Col>
-        <Col lg={4}>
-          <Offer>
-            <OfferTitle>2-комнатные квартиры</OfferTitle>
-            <Feature>
-              <FeatureTitle>Площадь</FeatureTitle>
-              <Text>от 59 до 120 м²</Text>
-            </Feature>
-            <Feature>
-              <FeatureTitle>Стоимость</FeatureTitle>
-              <Text>от 20.3 до 84.2 млн руб</Text>
-            </Feature>
-            <Wrapper>
-              <Button>Посмотреть предложения</Button>
-            </Wrapper>
-          </Offer>
-        </Col>
-        <Col lg={4}>
-          <Offer>
-            <OfferTitle>3-комнатные квартиры</OfferTitle>
-            <Feature>
-              <FeatureTitle>Площадь</FeatureTitle>
-              <Text>от 59 до 120 м²</Text>
-            </Feature>
-            <Feature>
-              <FeatureTitle>Стоимость</FeatureTitle>
-              <Text>от 20.3 до 84.2 млн руб</Text>
-            </Feature>
-            <Wrapper>
-              <Button>Посмотреть предложения</Button>
-            </Wrapper>
-          </Offer>
-        </Col>
+        <Offer>
+          <OfferTitle>1-комнатные квартиры</OfferTitle>
+          <Feature>
+            <FeatureTitle>Площадь</FeatureTitle>
+            <Text>от 59 до 120 м²</Text>
+          </Feature>
+          <Feature>
+            <FeatureTitle>Стоимость</FeatureTitle>
+            <Text>от 20.3 до 84.2 млн руб</Text>
+          </Feature>
+          <Wrapper>
+            <Button>Посмотреть предложения</Button>
+          </Wrapper>
+        </Offer>
+        <Offer>
+          <OfferTitle>2-комнатные квартиры</OfferTitle>
+          <Feature>
+            <FeatureTitle>Площадь</FeatureTitle>
+            <Text>от 59 до 120 м²</Text>
+          </Feature>
+          <Feature>
+            <FeatureTitle>Стоимость</FeatureTitle>
+            <Text>от 20.3 до 84.2 млн руб</Text>
+          </Feature>
+          <Wrapper>
+            <Button>Посмотреть предложения</Button>
+          </Wrapper>
+        </Offer>
+        <Offer>
+          <OfferTitle>3-комнатные квартиры</OfferTitle>
+          <Feature>
+            <FeatureTitle>Площадь</FeatureTitle>
+            <Text>от 59 до 120 м²</Text>
+          </Feature>
+          <Feature>
+            <FeatureTitle>Стоимость</FeatureTitle>
+            <Text>от 20.3 до 84.2 млн руб</Text>
+          </Feature>
+          <Wrapper>
+            <Button>Посмотреть предложения</Button>
+          </Wrapper>
+        </Offer>
       </Row>
     </Grid>
   </Offers>);

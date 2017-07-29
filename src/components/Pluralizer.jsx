@@ -1,6 +1,7 @@
 /* @flow */
 
 import React from 'react';
+
 import { declOfNum } from './../utils';
 
 type Props = {

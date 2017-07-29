@@ -1,13 +1,14 @@
 /* @flow */
 
 import React, { Component } from 'react';
-import { Grid, Row } from 'react-flexbox-grid';
+import { Grid } from 'react-flexbox-grid';
 import Modal from 'react-modal';
 import styled from 'styled-components';
-import { getImageUrl } from './../../utils';
-import Pluralizer from './../../components/Pluralizer';
+
+import { getImageUrl } from '../../utils';
+import Pluralizer from '../../components/Pluralizer';
 import Carousel from './Carousel';
-import type { ImagesType } from './../types';
+import type { ImagesType } from '../types';
 
 const Images = styled.div`
   display: flex;
@@ -21,22 +22,22 @@ const Image = styled.img`
   max-height: 25rem;
 
   &:hover {
-    transition: opacity .25s ease;
+    transition: opacity 0.25s ease;
     will-change: opacity;
     opacity: 0.9;
   }
 `;
 
 const Button = styled.button`
-  background-color: #00779a;
+  background-color: ${props => props.theme.ocean};
   border: none;
-  color: #fff;
+  color: ${props => props.theme.white};
   cursor: pointer;
   display: block;
-  font-family: "Fira Sans", "Helvetica", sans-serif;
+  font-family: ${props => props.theme.fira};
   font-size: 0.625rem;
   font-weight: 300;
-  line-height: 1.0;
+  line-height: 1;
   margin-top: -2.625rem;
   padding: 0.5rem 1rem;
   position: absolute;
@@ -46,7 +47,7 @@ const Button = styled.button`
   }
 
   &:hover {
-    transition: opacity .25s ease;
+    transition: opacity 0.25s ease;
     will-change: opacity;
     opacity: 0.9;
   }
@@ -72,7 +73,16 @@ const modalStyles = {
   },
 };
 
-class Gallery extends Component {
+type Props = {
+  images: ImagesType,
+  name: string,
+};
+type State = {
+  modalIsOpen: boolean,
+  selected: number,
+};
+
+export default class Gallery extends Component<void, Props, State> {
   state = {
     modalIsOpen: false,
     selected: 0,
@@ -88,7 +98,7 @@ class Gallery extends Component {
   };
 
   render() {
-    const { images, name }: { images: ImagesType, name: string } = this.props;
+    const { images, name } = this.props;
     const imagesCount: number = images.length;
 
     return (
@@ -98,14 +108,15 @@ class Gallery extends Component {
             (<Image
               key={image.id}
               src={getImageUrl(image.id)}
+              srcSet={`${getImageUrl(image.id, 1024)} 2x, ${getImageUrl(image.id, 2048)} 3x`}
               alt={`Фотография ${i + 1}/${imagesCount} ЖК ${name}`}
               title={`Фотография ${i + 1}/${imagesCount} ЖК ${name}`}
               onClick={this.openModal(i)}
             />),
           )}
         </Images>
-        <Grid>
-          <Row>
+        <Grid fluid>
+          <div>
             <Button onClick={this.openModal(0)}>
               {imagesCount}{' '}
               <Pluralizer
@@ -115,26 +126,24 @@ class Gallery extends Component {
                 other="фотографий"
               />
             </Button>
-            <Modal
-              isOpen={this.state.modalIsOpen}
-              onRequestClose={this.closeModal}
-              style={modalStyles}
-              contentLabel={''}
-            >
-              <Carousel
-                closeModal={this.closeModal}
-                images={images}
-                name={name}
-                active={this.state.selected}
-                gutter={'5vw'}
-                scaleRatio={1.2}
-              />
-            </Modal>
-          </Row>
+          </div>
         </Grid>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onRequestClose={this.closeModal}
+          style={modalStyles}
+          contentLabel={''}
+        >
+          <Carousel
+            closeModal={this.closeModal}
+            images={images}
+            name={name}
+            active={this.state.selected}
+            gutter={'5vw'}
+            scaleRatio={1.2}
+          />
+        </Modal>
       </div>
     );
   }
 }
-
-export default Gallery;

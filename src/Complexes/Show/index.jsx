@@ -25,7 +25,7 @@ export default class Complex extends Component {
     }
   }
 
-  load(slug: number) {
+  load(slug: string) {
     get(`/complexes/${slug}`).then((complex: ComplexType) => this.setState(complex));
   }
 
