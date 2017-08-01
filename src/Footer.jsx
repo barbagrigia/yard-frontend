@@ -9,7 +9,7 @@ import arrowImg from './img/arrow.svg';
 import { media } from './utils';
 
 const Footer = styled.footer`
-  background-color: ${props => props.theme.blackThree};
+  background-color: ${props => props.theme.blackThird};
   padding-top: 2rem;
   padding-bottom: 3rem;
   ${media.tablet`

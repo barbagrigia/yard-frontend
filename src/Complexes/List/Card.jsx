@@ -67,7 +67,7 @@ const Location = styled.p`
 `;
 
 const Name = styled.h3`
-  color: ${props => props.theme.blackTwo};
+  color: ${props => props.theme.blackSecondary};
   font-size: 2rem;
   line-height: 1.25;
   margin: 1.5rem 0 0;

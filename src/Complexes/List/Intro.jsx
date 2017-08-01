@@ -37,7 +37,7 @@ const Info = styled.p`
 `;
 
 const Contact = styled.button`
-  background-color: ${props => props.theme.blackTwo};
+  background-color: ${props => props.theme.blackSecondary};
   border-radius: 0.125rem;
   border: none;
   color: ${props => props.theme.white};

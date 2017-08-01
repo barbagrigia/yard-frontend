@@ -81,7 +81,7 @@ const Wrapper = styled.div`
 `;
 
 const Button = styled.button`
-  background-color: ${props => props.theme.blackTwo};
+  background-color: ${props => props.theme.blackSecondary};
   color: ${props => props.theme.white};
   cursor: pointer;
   font-family: ${props => props.theme.fira};

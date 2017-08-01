@@ -42,7 +42,7 @@ const Location = styled.small`
 const Favorites = styled.button`
   display: none;
   background-color: transparent;
-  border: 1px solid ${props => props.theme.anotherGrey};
+  border: 1px solid ${props => props.theme.lightGrayishBlue};
   color: ${props => props.theme.ocean};
   cursor: pointer;
   font-size: 0.625rem;
