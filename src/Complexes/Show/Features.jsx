@@ -8,6 +8,15 @@ import { media } from '../../utils';
 import type { StatisticsType, DetailsType, RangeType } from '../types';
 import { kinds, securityKinds, quarters, constructionKinds } from '../dictionaries';
 
+const Features = styled.section`
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  ${media.tablet`
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+  `};
+`;
+
 const Row = styled.div`
   display: flex;
   overflow-x: auto;
@@ -20,7 +29,7 @@ const Row = styled.div`
 `;
 
 const Col = styled.div`
-  flex: 1 0 24.3125rem;
+  flex: 1 0 23.15rem;
 
   &:first-child {
     margin-left: 1rem;
@@ -32,15 +41,6 @@ const Col = styled.div`
   &:not(:last-child) {
     margin-right: 1rem;
   }
-`;
-
-const Features = styled.section`
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  ${media.tablet`
-    padding-top: 2rem;
-    padding-bottom: 3rem;
-  `};
 `;
 
 const Feature = styled.dl`
