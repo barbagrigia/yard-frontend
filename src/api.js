@@ -1,6 +1,6 @@
 /* @flow */
 
-const apiUrl = 'https://yard-api.now.sh';
+const apiUrl = 'https://yard-api.now.sh/v1';
 export const imagesUrl = 'https://s3-eu-central-1.amazonaws.com/yard-images';
 
 function checkStatus(response) {
