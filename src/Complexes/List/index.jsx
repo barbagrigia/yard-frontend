@@ -3,7 +3,6 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { Grid } from 'react-flexbox-grid';
-import MediaQuery from 'react-responsive';
 
 import background from '../../img/background.png';
 import { get } from '../../api';
@@ -46,36 +45,19 @@ export default class Complexes extends Component<void, void, State> {
         />
         <Hero />
         <Intro />
-        <MediaQuery maxWidth={1199}>
-          <Grid fluid>
-            {complexes.map(complex =>
-              (<Card
-                key={complex.id}
-                slug={complex.slug}
-                location={complex.location}
-                name={complex.name}
-                img={complex.images[0].id}
-              >
-                {complex.shortDescription}
-              </Card>),
-            )}
-          </Grid>
-        </MediaQuery>
-        <MediaQuery minWidth={1200}>
-          <Grid>
-            {complexes.map(complex =>
-              (<Card
-                key={complex.id}
-                slug={complex.slug}
-                location={complex.location}
-                name={complex.name}
-                img={complex.images[0].id}
-              >
-                {complex.shortDescription}
-              </Card>),
-            )}
-          </Grid>
-        </MediaQuery>
+        <Grid fluid>
+          {complexes.map(complex =>
+            (<Card
+              key={complex.id}
+              slug={complex.slug}
+              location={complex.location}
+              name={complex.name}
+              img={complex.images[0].id}
+            >
+              {complex.shortDescription}
+            </Card>),
+          )}
+        </Grid>
       </main>
     );
   }

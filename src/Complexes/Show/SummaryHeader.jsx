@@ -2,20 +2,29 @@
 
 import React from 'react';
 import styled from 'styled-components';
+
 import Title from './Title';
-import Pluralizer from './../../components/Pluralizer';
-import type { DetailsType } from './../types';
+import Pluralizer from '../../components/Pluralizer';
+import { media } from '../../utils';
+import type { DetailsType } from '../types';
 
 const Header = styled.header`
   display: flex;
-  padding-bottom: 1.5em;
-  padding-top: 1.5rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 1rem;
+  padding-bottom: 0.875em;
+  ${media.tablet`
+    flex-direction: row;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5em;
+  `};
 `;
 
 const Subtitle = styled.small`
-  color: #a9afb6;
+  color: ${props => props.theme.hueGrey};
   display: block;
-  font-family: "Fira Sans", "Helvetica", sans-serif;
+  font-family: ${props => props.theme.fira};
   font-size: 0.875rem;
   font-weight: 300;
   line-height: 1.571;

@@ -2,8 +2,9 @@
 
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { getImageUrl } from './../../utils';
-import type { ImagesType } from './../types';
+
+import { getImageUrl } from '../../utils';
+import type { ImagesType } from '../types';
 
 const Wrapper = styled.div`
   padding-bottom: calc(0.8125 * ${props => props.gutter});
@@ -27,7 +28,7 @@ const Images = styled.div`
   will-change: transform;
   transform: translate(0, -50%);
 
-  @media (min-width: 1024px) {
+  @media (min-width: 64rem) {
     position: relative;
     top: auto;
     will-change: auto;
@@ -39,13 +40,13 @@ const Image = styled.img`
   cursor: pointer;
   max-height: 100vh;
   max-width: 80%;
-  transition: transform .25s ease-out;
+  transition: transform 0.25s ease-out;
   will-change: transform, opacity;
   transform: ${props => props.transform};
   transform-origin: center bottom;
   opacity: ${props => props.opacity};
 
-  @media (min-width: 1024px) {
+  @media (min-width: 64rem) {
     max-height: calc(
       100vh - ${props => props.gutter} - 0.8125 * ${props => props.gutter} - 2.875rem
     );
@@ -53,7 +54,7 @@ const Image = styled.img`
 `;
 
 const Description = styled.div`
-  color: #a9afb6;
+  color: ${props => props.theme.hueGrey};
   display: inline-block;
   font-weight: 300;
   line-height: 1.375;
@@ -66,7 +67,7 @@ const Description = styled.div`
   text-shadow: 1px 1px 2px rgba(17, 17, 17, 0.9);
   background: rgba(17, 17, 17, 0.5);
 
-  @media (min-width: 1024px) {
+  @media (min-width: 64rem) {
     margin-top: 1.5rem;
     position: relative;
     bottom: auto;
@@ -90,7 +91,7 @@ const Close = styled.div`
   z-index: 10;
 
   &:hover {
-    transition: transform .25s ease;
+    transition: transform 0.25s ease;
     will-change: transform;
     transform: scale(1.2);
   }
@@ -102,7 +103,7 @@ const Close = styled.div`
     content: ' ';
     height: 1.5rem;
     width: 1px;
-    background-color: #fff;
+    background-color: ${props => props.theme.white};
   }
 
   &:before {
@@ -115,7 +116,7 @@ const Close = styled.div`
     transform: rotate(-45deg);
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 64rem) {
     display: none;
   }
 `;
@@ -129,7 +130,17 @@ function getTransform(i: number, active: number, scaleRatio: number, gutter: str
   return `translateX(calc(${activeShiftX} + ${i - active} * ${gutter})) scaleY(${1 / scaleRatio})`;
 }
 
-class Carousel extends Component {
+type Props = {
+  closeModal: () => void,
+  images: ImagesType,
+  name: string,
+  active: number,
+  gutter: string,
+  scaleRatio: number,
+};
+type State = { active: number };
+
+export default class Carousel extends Component<void, Props, State> {
   state = { active: this.props.active };
 
   componentDidMount() {
@@ -160,23 +171,19 @@ class Carousel extends Component {
   };
 
   render() {
-    const { active }: { active: number } = this.state;
-    const {
-      images,
-      name,
-      gutter = '5vw',
-      scaleRatio = 1.2,
-    }: { images: ImagesType, name: string, gutter: string, scaleRatio: number } = this.props;
+    const { active } = this.state;
+    const { closeModal, images, name, gutter = '5vw', scaleRatio = 1.2 } = this.props;
     const imagesCount: number = images.length;
 
     return (
-      <Wrapper gutter={gutter} onClick={this.props.closeModal}>
-        <Close onClick={this.props.closeModal} />
+      <Wrapper gutter={gutter} onClick={closeModal}>
+        <Close onClick={closeModal} />
         <Images>
           {images.map((image, i) =>
             (<Image
               key={image.id}
-              src={getImageUrl(image.id, 1024)}
+              src={getImageUrl(image.id)}
+              srcSet={`${getImageUrl(image.id, 1024)} 2x, ${getImageUrl(image.id, 2048)} 3x`}
               alt={`Фотография ${i + 1}/${imagesCount} ЖК ${name}`}
               title={`Фотография ${i + 1}/${imagesCount} ЖК ${name}`}
               gutter={gutter}
@@ -193,5 +200,3 @@ class Carousel extends Component {
     );
   }
 }
-
-export default Carousel;

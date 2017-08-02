@@ -1,25 +1,65 @@
 /* @flow */
 
 import React from 'react';
+import { Grid } from 'react-flexbox-grid';
 import styled from 'styled-components';
-import { Grid, Row, Col } from 'react-flexbox-grid';
+
 import Hr from './Hr';
 import MapBox from './MapBox';
-import type { LocationType } from './../types';
+import { media } from '../../utils';
+import type { LocationType } from '../types';
 
-const Directions = styled.section`background-color: #fff;`;
-
-const Wrapper = styled.div`
-  background-color: #fff;
-  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.5);
-  margin-bottom: 4rem;
-  margin-top: -8.125rem;
+const Directions = styled.section`
+  background-color: ${props => props.theme.white};
+  ${media.tablet`
+    padding-bottom: 4rem;
+  `};
 `;
 
-const Direction = styled.div`padding: 1.5rem 1.5rem 1.5625rem 1.5rem;`;
+const Row = styled.div`
+  display: flex;
+  flex-direction: column;
+  ${media.tablet`
+    flex-direction: row;
+  `};
+`;
+
+const Wrapper = styled.div`
+  will-change: auto;
+  ${media.tablet`
+    flex: 1 1 calc(50% - 0.5rem);
+    background-color: ${props => props.theme.white};
+    will-change: box-shadow;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.5);
+    margin-top: -9.5625rem;
+  `};
+`;
+
+const StyledMapBox = styled(MapBox)`
+  height: 52vw;
+  will-change: box-shadow;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.5);
+  margin-right: -1rem;
+  margin-left: -1rem;
+  ${media.tablet`
+    flex: 1 1 calc(50% - 0.5rem);
+    height: 19.125rem;
+    margin-top: -9.5625rem;
+    margin-right: 1rem;
+    margin-left: 0;
+    will-change: auto;
+  `};
+`;
+
+const Direction = styled.div`
+  padding: 1.5rem 0 1.5625rem;
+  ${media.tablet`
+    padding: 1.5rem 1.5rem 1.5625rem;
+  `};
+`;
 
 const Title = styled.p`
-  color: #3e4247;
+  color: ${props => props.theme.charcoalGrey};
   font-weight: 500;
   line-height: 1.375;
   margin-bottom: 0.5rem;
@@ -27,18 +67,18 @@ const Title = styled.p`
 `;
 
 const Distance = styled.p`
-  color: #a9afb6;
+  color: ${props => props.theme.hueGrey};
   line-height: 1.375;
   margin: 0;
 `;
 
-const style = {
-  boxShadow: '0 0 30px 0 rgba(0, 0, 0, 0.5)',
-  height: '19.125rem',
-  marginBottom: '4rem',
-  marginTop: '-8.125rem',
-  width: '100%',
-};
+const Line = Hr.extend`
+  margin-right: -1rem;
+  margin-left: -1rem;
+  ${media.tablet`
+    margin: 0;
+  `};
+`;
 
 type Props = {
   location: LocationType,
@@ -46,30 +86,26 @@ type Props = {
 
 export default ({ location }: Props) =>
   (<Directions>
-    <Grid>
+    <Grid fluid>
       <Row>
-        <Col lg={6}>
-          <MapBox location={location} style={style} />
-        </Col>
-        <Col lg={6}>
-          <Wrapper>
-            <Direction>
-              <Title>Красный Октябрь</Title>
-              <Distance>24 минуты, 6 км</Distance>
-            </Direction>
-            <Hr />
-            <Direction>
-              <Title>World class</Title>
-              <Distance>2 минуты, 300 м</Distance>
-            </Direction>
-            <Hr />
-            <Direction>
-              <Title>Третьяковская галерея</Title>
-              <Distance>14 минут, 4 км</Distance>
-            </Direction>
-            <Hr />
-          </Wrapper>
-        </Col>
+        <StyledMapBox location={location} />
+        <Wrapper>
+          <Direction>
+            <Title>Красный Октябрь</Title>
+            <Distance>24 минуты, 6 км</Distance>
+          </Direction>
+          <Line />
+          <Direction>
+            <Title>World class</Title>
+            <Distance>2 минуты, 300 м</Distance>
+          </Direction>
+          <Line />
+          <Direction>
+            <Title>Третьяковская галерея</Title>
+            <Distance>14 минут, 4 км</Distance>
+          </Direction>
+          <Line />
+        </Wrapper>
       </Row>
     </Grid>
   </Directions>);

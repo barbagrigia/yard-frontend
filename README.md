@@ -15,6 +15,10 @@
   <a href="https://david-dm.org/barbagrigia/yard-frontend?type=dev">
     <img src="https://david-dm.org/barbagrigia/yard-frontend/dev-status.svg" alt="devDependency Status" />
   </a>
+  <!-- Codacy Badge -->
+  <a href="https://www.codacy.com/app/barbagrigia/yard-frontend=Badge_Grade">
+    <img src="https://api.codacy.com/project/badge/Grade/0ae8449766614968847998dcbbe34a7a"/>
+  </a>
   <!-- Prettier Badge -->
   <a href="https://github.com/prettier/prettier">
     <img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" alt="styled with prettier" />

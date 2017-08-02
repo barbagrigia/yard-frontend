@@ -1,15 +1,46 @@
 /* @flow */
 
 import React from 'react';
-import { Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
+
 import Title from './Title';
-import type { StatisticsType, DetailsType, RangeType } from './../types';
+import { media } from '../../utils';
+import type { StatisticsType, DetailsType, RangeType } from '../types';
 import { kinds, securityKinds, quarters, constructionKinds } from '../dictionaries';
 
 const Features = styled.section`
   padding-top: 2rem;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
+  ${media.tablet`
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+  `};
+`;
+
+const Row = styled.div`
+  display: flex;
+  overflow-x: auto;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  ${media.tablet`
+    margin-left: 0;
+    margin-right: 0;
+  `};
+`;
+
+const Col = styled.div`
+  flex: 1 0 23.15rem;
+
+  &:first-child {
+    margin-left: 1rem;
+    ${media.tablet`
+      margin-left: 0;
+    `};
+  }
+
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
 `;
 
 const Feature = styled.dl`
@@ -27,12 +58,12 @@ const Feature = styled.dl`
 `;
 
 const Label = styled.dt`
-  color: #a9afb6;
+  color: ${props => props.theme.hueGrey};
   width: 50%;
 `;
 
 const Value = styled.dd`
-  color: #3e4247;
+  color: ${props => props.theme.charcoalGrey};
   font-weight: 500;
   margin-left: 0;
   width: 50%;
@@ -51,8 +82,11 @@ function formatCeilHeight({ from, to }: RangeType): string {
 }
 
 export default ({ statistics, details }: Props) => {
-  const { propertiesCount, price = {}, totalArea = {} } = statistics;
-  const { from: priceFrom = {}, to: priceTo = {} } = price;
+  const {
+    propertiesCount,
+    price: { from: { rub: priceFromRub } = {}, to: { rub: priceToRub } = {} } = {},
+    totalArea: { from: totalAreaFrom, to: totalAreaTo } = {},
+  } = statistics;
   const {
     propertyKind,
     security,
@@ -71,7 +105,7 @@ export default ({ statistics, details }: Props) => {
     <Features>
       <Title>Характеристики</Title>
       <Row>
-        <Col lg={4}>
+        <Col>
           {propertiesCount &&
             <Feature>
               <Label>Количество квартир</Label>
@@ -86,13 +120,12 @@ export default ({ statistics, details }: Props) => {
                 {kinds[propertyKind]}
               </Value>
             </Feature>}
-          {priceFrom &&
-            priceTo &&
+          {priceFromRub &&
+            priceToRub &&
             <Feature>
               <Label>Цены</Label>
               <Value>
-                от {(priceFrom.rub / 1000000).toFixed(1)} до {(priceTo.rub / 1000000).toFixed(1)}{' '}
-                млн
+                от {(priceFromRub / 1000000).toFixed(1)} до {(priceToRub / 1000000).toFixed(1)} млн
               </Value>
             </Feature>}
           {security &&
@@ -103,7 +136,7 @@ export default ({ statistics, details }: Props) => {
               </Value>
             </Feature>}
         </Col>
-        <Col lg={4}>
+        <Col>
           {constructionKind &&
             <Feature>
               <Label>Конструкция корпусов</Label>
@@ -111,11 +144,12 @@ export default ({ statistics, details }: Props) => {
                 {constructionKinds[constructionKind]}
               </Value>
             </Feature>}
-          {totalArea &&
+          {totalAreaFrom &&
+            totalAreaTo &&
             <Feature>
               <Label>Площадь</Label>
               <Value>
-                от {Math.round(totalArea.from)} до {Math.round(totalArea.to)} м²
+                от {Math.round(totalAreaFrom)} до {Math.round(totalAreaTo)} м²
               </Value>
             </Feature>}
           {ceilHeight &&
@@ -125,14 +159,15 @@ export default ({ statistics, details }: Props) => {
                 {formatCeilHeight(ceilHeight)} м
               </Value>
             </Feature>}
-          <Feature>
-            <Label>Обслуживание</Label>
-            <Value>
-              {maintenanceCosts} руб / м² / месяц
-            </Value>
-          </Feature>
+          {maintenanceCosts &&
+            <Feature>
+              <Label>Обслуживание</Label>
+              <Value>
+                {maintenanceCosts} руб / м² / месяц
+              </Value>
+            </Feature>}
         </Col>
-        <Col lg={4}>
+        <Col>
           {startQuarter &&
             startYear &&
             <Feature>

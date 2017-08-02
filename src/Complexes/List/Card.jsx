@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { getImageUrl, media } from '../../utils';
-import type { LocationType } from './../types';
+import type { LocationType } from '../types';
 
 const Card = styled(Link)`
   background-color: ${props => props.theme.white};
@@ -67,7 +67,7 @@ const Location = styled.p`
 `;
 
 const Name = styled.h3`
-  color: ${props => props.theme.blackTwo};
+  color: ${props => props.theme.blackSecondary};
   font-size: 2rem;
   line-height: 1.25;
   margin: 1.5rem 0 0;
