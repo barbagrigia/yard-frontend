@@ -17,11 +17,14 @@
   </a>
   <!-- Codacy Badge -->
   <a href="https://www.codacy.com/app/barbagrigia/yard-frontend=Badge_Grade">
-    <img src="https://api.codacy.com/project/badge/Grade/0ae8449766614968847998dcbbe34a7a"/>
+    <img src="https://api.codacy.com/project/badge/Grade/0ae8449766614968847998dcbbe34a7a" alt="Codacy Badge"/>
   </a>
-  <!-- Prettier Badge -->
+  <!-- Codebeat Badge -->
+  <a href="https://codebeat.co/projects/github-com-barbagrigia-yard-frontend-master">
+    <img src="https://codebeat.co/badges/7b289908-62ac-4bc9-ab35-fd14eeb55498" alt="Codebeat Badge"/>
+  </a>  <!-- Prettier Badge -->
   <a href="https://github.com/prettier/prettier">
-    <img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" alt="styled with prettier" />
+    <img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" alt="Styled with Prettier" />
   </a>
 </div>
 <br />
@@ -64,14 +67,16 @@ builds the app for production to the build folder.
 `yarn deploy`
 deploys the app on the [now.sh](https://zeit.co/now).
 
-`yarn lint` runs linter.
+`yarn lint` runs eslint linter.
+
+`yarn lint:css` runs slylelint linter.
 
 `yarn flow` runs flow types checking.
 
 ### Dependencies
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-- [💅 styled-components](https://github.com/styled-components/styled-components)
+- [💅 styled-components](https://github.com/styled-components/styled-components) with [stylelint-processor-styled-components](https://github.com/styled-components/stylelint-processor-styled-components)
 - [normalize.css](https://github.com/necolas/normalize.css)
 - [react-flexbox-grid](https://github.com/roylee0704/react-flexbox-grid)
 - [react-router](https://github.com/ReactTraining/react-router)
@@ -80,6 +85,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [react-modal](https://github.com/reactjs/react-modal)
 - [flow](https://flow.org) with [flow-typed](https://github.com/flowtype/flow-typed)
 - [eslint](http://eslint.org) with [aribnb config](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
+- [stylelint](https://stylelint.io) with [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard)
 - [🐶 husky](https://github.com/typicode/husky)
 - [now](https://github.com/zeit/now-cli)
 
