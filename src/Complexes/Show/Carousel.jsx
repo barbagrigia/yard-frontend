@@ -96,8 +96,8 @@ const Close = styled.div`
     transform: scale(1.2);
   }
 
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     position: absolute;
     left: 1.5rem;
     content: ' ';
@@ -106,12 +106,12 @@ const Close = styled.div`
     background-color: ${props => props.theme.white};
   }
 
-  &:before {
+  &::before {
     will-change: transform;
     transform: rotate(45deg);
   }
 
-  &:after {
+  &::after {
     will-change: transform;
     transform: rotate(-45deg);
   }

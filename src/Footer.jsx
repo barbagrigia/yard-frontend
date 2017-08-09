@@ -70,7 +70,7 @@ const Link = styled(RouterLink)`
 const ArrowedLink = styled(Link)`
   margin-top: 1rem;
 
-  &:after {
+  &::after {
     margin-left: 0.5rem;
     content: url(${arrowImg});
   }
