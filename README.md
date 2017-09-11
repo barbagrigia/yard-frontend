@@ -30,6 +30,8 @@
 <br />
 
 ## Powered by
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/barbagrigia/yard-frontend.svg)](https://greenkeeper.io/)
 <!-- React Logo -->
 <a href="https://facebook.github.io/react">
   <img src="https://www.shareicon.net/download/2016/07/08/117367_logo.svg" height="64px" alt="React" title="React" />
